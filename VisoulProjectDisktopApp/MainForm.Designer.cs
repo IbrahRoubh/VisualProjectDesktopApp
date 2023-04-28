@@ -29,14 +29,26 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.storeBox = new System.Windows.Forms.GroupBox();
+            this.storeLabel = new System.Windows.Forms.Label();
+            this.userInfoBox = new System.Windows.Forms.GroupBox();
+            this.requestBox = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.storgBox = new System.Windows.Forms.GroupBox();
+            this.storgLabel = new System.Windows.Forms.Label();
+            this.settingBox = new System.Windows.Forms.GroupBox();
+            this.settingLabel = new System.Windows.Forms.Label();
+            this.mainPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.storeBox.SuspendLayout();
+            this.requestBox.SuspendLayout();
+            this.storgBox.SuspendLayout();
+            this.settingBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -47,40 +59,151 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.tableLayoutPanel1);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.mainPanel);
             this.splitContainer1.Size = new System.Drawing.Size(800, 450);
-            this.splitContainer1.SplitterDistance = 246;
+            this.splitContainer1.SplitterDistance = 262;
             this.splitContainer1.TabIndex = 0;
             // 
-            // groupBox1
+            // tableLayoutPanel1
             // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(240, 120);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "User info";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.storeBox, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.userInfoBox, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.requestBox, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.storgBox, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.settingBox, 0, 4);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 138F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(262, 450);
+            this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // storeBox
+            // 
+            this.storeBox.Controls.Add(this.storeLabel);
+            this.storeBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.storeBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.storeBox.Location = new System.Drawing.Point(3, 94);
+            this.storeBox.Name = "storeBox";
+            this.storeBox.Size = new System.Drawing.Size(256, 50);
+            this.storeBox.TabIndex = 1;
+            this.storeBox.TabStop = false;
+            this.storeBox.Click += new System.EventHandler(this.storeBox_onClick);
+            // 
+            // storeLabel
+            // 
+            this.storeLabel.AutoSize = true;
+            this.storeLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.storeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.storeLabel.Location = new System.Drawing.Point(3, 16);
+            this.storeLabel.Name = "storeLabel";
+            this.storeLabel.Size = new System.Drawing.Size(59, 25);
+            this.storeLabel.TabIndex = 0;
+            this.storeLabel.Text = "Store";
+            this.storeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // userInfoBox
+            // 
+            this.userInfoBox.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.userInfoBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.userInfoBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userInfoBox.Location = new System.Drawing.Point(3, 3);
+            this.userInfoBox.Name = "userInfoBox";
+            this.userInfoBox.Size = new System.Drawing.Size(256, 85);
+            this.userInfoBox.TabIndex = 2;
+            this.userInfoBox.TabStop = false;
+            this.userInfoBox.Text = "User Info";
+            this.userInfoBox.Click += new System.EventHandler(this.settingBox_onClick);
+            // 
+            // requestBox
+            // 
+            this.requestBox.Controls.Add(this.label1);
+            this.requestBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.requestBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.requestBox.Location = new System.Drawing.Point(3, 150);
+            this.requestBox.Name = "requestBox";
+            this.requestBox.Size = new System.Drawing.Size(256, 50);
+            this.requestBox.TabIndex = 3;
+            this.requestBox.TabStop = false;
+            this.requestBox.Click += new System.EventHandler(this.requestBox_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(70, 90);
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 13);
+            this.label1.Size = new System.Drawing.Size(216, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "ibrahim ALROUBH";
+            this.label1.Text = "Manufacturing requests";
             // 
-            // pictureBox1
+            // storgBox
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(65, 9);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 68);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.storgBox.Controls.Add(this.storgLabel);
+            this.storgBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.storgBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.storgBox.Location = new System.Drawing.Point(3, 206);
+            this.storgBox.Name = "storgBox";
+            this.storgBox.Size = new System.Drawing.Size(256, 48);
+            this.storgBox.TabIndex = 4;
+            this.storgBox.TabStop = false;
+            this.storgBox.Click += new System.EventHandler(this.storgBox_onClick);
+            // 
+            // storgLabel
+            // 
+            this.storgLabel.AutoSize = true;
+            this.storgLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.storgLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.storgLabel.Location = new System.Drawing.Point(3, 16);
+            this.storgLabel.Name = "storgLabel";
+            this.storgLabel.Size = new System.Drawing.Size(59, 25);
+            this.storgLabel.TabIndex = 0;
+            this.storgLabel.Text = "Storg";
+            // 
+            // settingBox
+            // 
+            this.settingBox.Controls.Add(this.settingLabel);
+            this.settingBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.settingBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.settingBox.Location = new System.Drawing.Point(3, 260);
+            this.settingBox.Name = "settingBox";
+            this.settingBox.Size = new System.Drawing.Size(256, 49);
+            this.settingBox.TabIndex = 5;
+            this.settingBox.TabStop = false;
+            this.settingBox.Click += new System.EventHandler(this.settingBox_onClick);
+            // 
+            // settingLabel
+            // 
+            this.settingLabel.AutoSize = true;
+            this.settingLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.settingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settingLabel.Location = new System.Drawing.Point(3, 16);
+            this.settingLabel.Name = "settingLabel";
+            this.settingLabel.Size = new System.Drawing.Size(83, 25);
+            this.settingLabel.TabIndex = 0;
+            this.settingLabel.Text = "Settings";
+            // 
+            // mainPanel
+            // 
+            this.mainPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainPanel.Location = new System.Drawing.Point(0, 0);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(534, 450);
+            this.mainPanel.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -92,11 +215,18 @@
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.storeBox.ResumeLayout(false);
+            this.storeBox.PerformLayout();
+            this.requestBox.ResumeLayout(false);
+            this.requestBox.PerformLayout();
+            this.storgBox.ResumeLayout(false);
+            this.storgBox.PerformLayout();
+            this.settingBox.ResumeLayout(false);
+            this.settingBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -104,8 +234,16 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.GroupBox storeBox;
+        private System.Windows.Forms.GroupBox userInfoBox;
+        private System.Windows.Forms.GroupBox requestBox;
+        private System.Windows.Forms.Label storeLabel;
+        private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox storgBox;
+        private System.Windows.Forms.Label storgLabel;
+        private System.Windows.Forms.GroupBox settingBox;
+        private System.Windows.Forms.Label settingLabel;
     }
 }

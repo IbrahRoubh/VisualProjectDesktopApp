@@ -26,8 +26,8 @@ namespace VisoulProjectDisktopApp
         {
             if (isValidUser()) {
                 MainForm mainForm = new MainForm();
+                this.Hide();
                 mainForm.ShowDialog();
-                this.Close();
             }
             else
                 errorMsg.Visible = true;
