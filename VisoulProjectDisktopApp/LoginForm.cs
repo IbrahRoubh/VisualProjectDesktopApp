@@ -12,6 +12,7 @@ namespace VisoulProjectDisktopApp
 {
     public partial class LoginForm : Form
     {
+        FactoryRepo Frepo= new FactoryRepo();   
         public LoginForm()
         {
             InitializeComponent();
@@ -24,18 +25,14 @@ namespace VisoulProjectDisktopApp
 
         private void submitBtn_Click(object sender, EventArgs e)
         {
-            if (isValidUser()) {
+           if (Frepo.isUser(nameTxt.Text,passwordTxt.Text)) {
                 MainForm mainForm = new MainForm();
                 this.Hide();
                 mainForm.ShowDialog();
+                this.Dispose();
             }
             else
                 errorMsg.Visible = true;
-        }
-
-        private Boolean isValidUser()
-        {
-            return true;
         }
 
     }

@@ -34,18 +34,20 @@
             this.storeLabel = new System.Windows.Forms.Label();
             this.userInfoBox = new System.Windows.Forms.GroupBox();
             this.requestBox = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.requestLabel = new System.Windows.Forms.Label();
             this.storgBox = new System.Windows.Forms.GroupBox();
             this.storgLabel = new System.Windows.Forms.Label();
             this.settingBox = new System.Windows.Forms.GroupBox();
             this.settingLabel = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.usernameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.storeBox.SuspendLayout();
+            this.userInfoBox.SuspendLayout();
             this.requestBox.SuspendLayout();
             this.storgBox.SuspendLayout();
             this.settingBox.SuspendLayout();
@@ -113,10 +115,12 @@
             this.storeLabel.TabIndex = 0;
             this.storeLabel.Text = "Store";
             this.storeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.storeLabel.Click += new System.EventHandler(this.storeBox_onClick);
             // 
             // userInfoBox
             // 
             this.userInfoBox.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.userInfoBox.Controls.Add(this.usernameLabel);
             this.userInfoBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.userInfoBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userInfoBox.Location = new System.Drawing.Point(3, 3);
@@ -129,7 +133,7 @@
             // 
             // requestBox
             // 
-            this.requestBox.Controls.Add(this.label1);
+            this.requestBox.Controls.Add(this.requestLabel);
             this.requestBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.requestBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.requestBox.Location = new System.Drawing.Point(3, 150);
@@ -139,16 +143,17 @@
             this.requestBox.TabStop = false;
             this.requestBox.Click += new System.EventHandler(this.requestBox_Click);
             // 
-            // label1
+            // requestLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(216, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Manufacturing requests";
+            this.requestLabel.AutoSize = true;
+            this.requestLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.requestLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.requestLabel.Location = new System.Drawing.Point(3, 16);
+            this.requestLabel.Name = "requestLabel";
+            this.requestLabel.Size = new System.Drawing.Size(216, 25);
+            this.requestLabel.TabIndex = 0;
+            this.requestLabel.Text = "Manufacturing requests";
+            this.requestLabel.Click += new System.EventHandler(this.requestBox_Click);
             // 
             // storgBox
             // 
@@ -172,6 +177,7 @@
             this.storgLabel.Size = new System.Drawing.Size(59, 25);
             this.storgLabel.TabIndex = 0;
             this.storgLabel.Text = "Storg";
+            this.storgLabel.Click += new System.EventHandler(this.storgBox_onClick);
             // 
             // settingBox
             // 
@@ -195,6 +201,7 @@
             this.settingLabel.Size = new System.Drawing.Size(83, 25);
             this.settingLabel.TabIndex = 0;
             this.settingLabel.Text = "Settings";
+            this.settingLabel.Click += new System.EventHandler(this.settingBox_onClick);
             // 
             // mainPanel
             // 
@@ -204,6 +211,15 @@
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(534, 450);
             this.mainPanel.TabIndex = 0;
+            // 
+            // usernameLabel
+            // 
+            this.usernameLabel.AutoSize = true;
+            this.usernameLabel.Location = new System.Drawing.Point(104, 33);
+            this.usernameLabel.Name = "usernameLabel";
+            this.usernameLabel.Size = new System.Drawing.Size(35, 13);
+            this.usernameLabel.TabIndex = 0;
+            this.usernameLabel.Text = "label1";
             // 
             // MainForm
             // 
@@ -221,6 +237,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.storeBox.ResumeLayout(false);
             this.storeBox.PerformLayout();
+            this.userInfoBox.ResumeLayout(false);
+            this.userInfoBox.PerformLayout();
             this.requestBox.ResumeLayout(false);
             this.requestBox.PerformLayout();
             this.storgBox.ResumeLayout(false);
@@ -240,10 +258,11 @@
         private System.Windows.Forms.GroupBox requestBox;
         private System.Windows.Forms.Label storeLabel;
         private System.Windows.Forms.Panel mainPanel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label requestLabel;
         private System.Windows.Forms.GroupBox storgBox;
         private System.Windows.Forms.Label storgLabel;
         private System.Windows.Forms.GroupBox settingBox;
         private System.Windows.Forms.Label settingLabel;
+        private System.Windows.Forms.Label usernameLabel;
     }
 }
