@@ -79,9 +79,14 @@ namespace VisoulProjectDisktopApp
             mainPanel.Controls.Add(storeGridView);
         }
 
-        private void onSelectStoreClick(object sender, EventArgs e)
+        private void onSelectStoreClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (storeGridView.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {
+                String name = (String)storeGridView.Rows[e.RowIndex].Cells["name"].Value;
+                mainPanel.Controls.Clear();
 
+            }
         }
 
         private void requestBox_Click(object sender, EventArgs e)
