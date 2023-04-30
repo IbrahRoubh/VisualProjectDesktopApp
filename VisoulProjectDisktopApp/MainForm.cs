@@ -20,8 +20,6 @@ namespace VisoulProjectDisktopApp
 {
     public partial class MainForm : Form
     {
-        DataGridView productGridView;
-
         private FactroryModel factrory = new FactroryModel();
 
         private FactoryRepo factoryRepo = new FactoryRepo();
@@ -52,27 +50,38 @@ namespace VisoulProjectDisktopApp
             usernameLabel.Text = username;
         }
 
-
+        DataGridView storeGridView;
         private void storeBox_onClick(object sender, EventArgs e)
         {
             mainPanel.Controls.Clear();
-
             List<StoreModel> stores = storeRepo.getStores();
-            foreach (StoreModel store in stores)
+            storeGridView = new DataGridView();
+            storeGridView.Dock = DockStyle.Fill;
+            storeGridView.AutoGenerateColumns = false;
+            storeGridView.Columns.Add("name", "Store Name");
+            storeGridView.Columns.Add("location", "Store Location");
+
+            DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
+            buttonColumn.HeaderText = "Store Select";
+            buttonColumn.Text = "Select";
+            buttonColumn.UseColumnTextForButtonValue = true;
+            storeGridView.Columns.Add(buttonColumn);
+            storeGridView.CellContentClick += new DataGridViewCellEventHandler(onSelectStoreClick);
+
+            if(stores != null)
             {
-                Button button = new Button();
-                button.Text = store.name;
-                button.Click += new EventHandler(onStoreClick);
-                mainPanel.Controls.Add(button);
+                foreach(StoreModel store in stores)
+                {
+                    storeGridView.Rows.Add(store.name,store.location);
+                }
             }
+
+            mainPanel.Controls.Add(storeGridView);
         }
 
-        private void onStoreClick(object sender, EventArgs e){
-            Button button = sender as Button;
-            string buttonName = button.Name;
-            button.Width = mainPanel.Width;
+        private void onSelectStoreClick(object sender, EventArgs e)
+        {
 
-            MessageBox.Show($"Navigating to {buttonName}");
         }
 
         private void requestBox_Click(object sender, EventArgs e)
@@ -83,6 +92,7 @@ namespace VisoulProjectDisktopApp
             mainPanel.Controls.Add(l);
         }
 
+        DataGridView productGridView;
         private void storgBox_onClick(object sender, EventArgs e)
         {
             mainPanel.Controls.Clear();
