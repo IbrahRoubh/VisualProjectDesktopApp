@@ -11,13 +11,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VisoulProjectDisktopApp.model;
+using VisoulProjectDisktopApp.Repository;
 
 namespace VisoulProjectDisktopApp
 {
     public partial class MainForm : Form
     {
+        DataGridView productGridView;
+
         private FactroryModel factrory = new FactroryModel();
+
         private FactoryRepo factoryRepo = new FactoryRepo();
+        private ProductRepo productRepo = new ProductRepo();
+
         private CookieManager cookieManager;
         String username;
         public MainForm(CookieManager cookieManager)
@@ -63,8 +69,40 @@ namespace VisoulProjectDisktopApp
         private void storgBox_onClick(object sender, EventArgs e)
         {
             mainPanel.Controls.Clear();
+            List<ProductModel> products = productRepo.getProductsByFactoryID(factrory.id);
+            productGridView = new DataGridView();
+            productGridView.Dock = DockStyle.Fill;
+            productGridView.AutoGenerateColumns = false;
+            productGridView.Columns.Add("Name", "Product Name");
+            productGridView.Columns.Add("Description", "Description");
+            productGridView.Columns.Add("Code", "Product Code");
+            productGridView.Columns.Add("Amount", "Product Amount");
 
+            DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
+            buttonColumn.HeaderText = "Button Column";
+            buttonColumn.Text = "update";
+            buttonColumn.UseColumnTextForButtonValue = true;
+            productGridView.Columns.Add(buttonColumn);
+
+            if (products != null)
+            {
+                foreach (ProductModel product in products)
+                {
+                    productGridView.Rows.Add(product.name, product.description, product.code, product.amount);
+                }
+            }
+            mainPanel.Controls.Add(productGridView);
         }
+
+        private void onUpdateRecordClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (productGridView.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {
+                String name = (String)productGridView.Rows[e.RowIndex].Cells["Name"].Value;
+            }
+        }
+
+
 
         private void settingBox_onClick(object sender, EventArgs e)
         {
@@ -76,7 +114,6 @@ namespace VisoulProjectDisktopApp
             tableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
 
-            // Create the labels and add them to the TableLayoutPanel
             Label SusernameLabel = new Label();
             SusernameLabel.Text = factrory.name;
             tableLayout.Controls.Add(SusernameLabel, 0, 0);
@@ -93,7 +130,6 @@ namespace VisoulProjectDisktopApp
             SpasswordLabel.Text = factrory.password;
             tableLayout.Controls.Add(SpasswordLabel, 1, 1);
 
-            // Add the TableLayoutPanel to the main panel
             mainPanel.Controls.Add(tableLayout);
         }
 

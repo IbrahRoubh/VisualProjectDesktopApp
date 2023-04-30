@@ -47,7 +47,7 @@ namespace VisoulProjectDisktopApp
                 SqlDataReader reader= command.ExecuteReader();
                 while (reader.Read())
                 {
-                    factrory.id = (int)reader["id"];
+                    factrory.id = (int)reader["ID"];
                     factrory.name = (String)reader["name"];
                     factrory.password = (String)reader["password"];
                     factrory.location = (String)reader["location"];
