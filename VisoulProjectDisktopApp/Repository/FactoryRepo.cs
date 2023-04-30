@@ -21,19 +21,23 @@ namespace VisoulProjectDisktopApp
                 SqlCommand command = new SqlCommand(query, conn);
                 conn.Open();
                 string DBpassword = command.ExecuteScalar().ToString();
-                conn.Close();
-
                 if (password == DBpassword)
                 {
                     cookieManager.setCooike(username);
                     return true;
                 }
                 else
+                {
                     return false;
+                }
             }
             catch {
-                conn.Close();
+                
                 return false;
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -59,7 +63,31 @@ namespace VisoulProjectDisktopApp
             {
                 Application.Exit();
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
+        public void updateFactory(int ID,String name,String location,String phone, String password)
+        {
+            try
+            {
+                String query = "UPDATE Factory SET name = '" + name + "',location = '" + location + "', phone = '" + phone + "', password = '" + password + "' WHERE ID= '" + ID + "'";
+                conn.Open();
+                SqlCommand command = new SqlCommand(query,conn);
+                command.ExecuteNonQuery();
+                MessageBox.Show("Update completed successfully");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("error " +ex);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            
+        }
     }
 }

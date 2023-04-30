@@ -48,5 +48,49 @@ namespace VisoulProjectDisktopApp.Repository
             }
 
         }
+
+        public void productUpdate(int FID,int PID,String name,String description,String code,String amounte)
+        {
+            try
+            {
+                String query = "UPDATE Product SET description = '" + description + "', code = '" + code + "' WHERE name = '"+name+"'";
+                String query2 = "UPDATE report SET amount = '"+amounte+"' WHERE FID = '"+FID+"' AND PID = '"+PID+"'";
+                conn.Open();
+                SqlCommand command = new SqlCommand(query, conn);
+                SqlCommand command2 = new SqlCommand(query2, conn);
+                command.ExecuteNonQuery();
+                command2.ExecuteNonQuery();
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show("error "+ ex);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        /*public ProductModel getProductByName(String naem)
+        {
+            try
+            {
+                String query = "SELECT * ";
+                SqlCommand command = new SqlCommand(query, conn);
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+
+                }
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }*/
+    }
 }
