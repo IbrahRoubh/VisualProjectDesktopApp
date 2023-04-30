@@ -48,7 +48,7 @@
   <ItemGroup>
     <Compile Include="CookieManager.cs" />
     <Compile Include="model\ProductModel.cs" />
-    <Compile Include="model\StroeModel.cs" />
+    <Compile Include="model\StoreModel.cs" />
     <Compile Include="Repository\FactoryRepo.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>

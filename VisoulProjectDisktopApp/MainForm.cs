@@ -13,6 +13,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using VisoulProjectDisktopApp.model;
 using VisoulProjectDisktopApp.Repository;
+using static System.Windows.Forms.AxHost;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace VisoulProjectDisktopApp
 {
@@ -24,6 +26,7 @@ namespace VisoulProjectDisktopApp
 
         private FactoryRepo factoryRepo = new FactoryRepo();
         private ProductRepo productRepo = new ProductRepo();
+        private StoreRepo storeRepo = new StoreRepo();
 
         private CookieManager cookieManager;
         String username;
@@ -54,9 +57,22 @@ namespace VisoulProjectDisktopApp
         {
             mainPanel.Controls.Clear();
 
-            Label l = new Label();
-            l.Text = "store name";
-            mainPanel.Controls.Add(l); 
+            List<StoreModel> stores = storeRepo.getStores();
+            foreach (StoreModel store in stores)
+            {
+                Button button = new Button();
+                button.Text = store.name;
+                button.Click += new EventHandler(onStoreClick);
+                mainPanel.Controls.Add(button);
+            }
+        }
+
+        private void onStoreClick(object sender, EventArgs e){
+            Button button = sender as Button;
+            string buttonName = button.Name;
+            button.Width = mainPanel.Width;
+
+            MessageBox.Show($"Navigating to {buttonName}");
         }
 
         private void requestBox_Click(object sender, EventArgs e)

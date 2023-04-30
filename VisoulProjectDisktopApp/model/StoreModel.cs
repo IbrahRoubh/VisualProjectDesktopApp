@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VisoulProjectDisktopApp.model
 {
-    internal class StroeModel
+    internal class StoreModel
     {
         public int ID { get; set; }
         public String name { get; set; }
