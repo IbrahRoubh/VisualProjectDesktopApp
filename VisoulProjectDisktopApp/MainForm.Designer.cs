@@ -33,6 +33,7 @@
             this.storeBox = new System.Windows.Forms.GroupBox();
             this.storeLabel = new System.Windows.Forms.Label();
             this.userInfoBox = new System.Windows.Forms.GroupBox();
+            this.usernameLabel = new System.Windows.Forms.Label();
             this.requestBox = new System.Windows.Forms.GroupBox();
             this.requestLabel = new System.Windows.Forms.Label();
             this.storgBox = new System.Windows.Forms.GroupBox();
@@ -40,7 +41,6 @@
             this.settingBox = new System.Windows.Forms.GroupBox();
             this.settingLabel = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
-            this.usernameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -131,6 +131,16 @@
             this.userInfoBox.Text = "User Info";
             this.userInfoBox.Click += new System.EventHandler(this.settingBox_onClick);
             // 
+            // usernameLabel
+            // 
+            this.usernameLabel.AutoSize = true;
+            this.usernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameLabel.Location = new System.Drawing.Point(104, 33);
+            this.usernameLabel.Name = "usernameLabel";
+            this.usernameLabel.Size = new System.Drawing.Size(0, 20);
+            this.usernameLabel.TabIndex = 0;
+            this.usernameLabel.Click += new System.EventHandler(this.settingBox_onClick);
+            // 
             // requestBox
             // 
             this.requestBox.Controls.Add(this.requestLabel);
@@ -211,15 +221,6 @@
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(534, 450);
             this.mainPanel.TabIndex = 0;
-            // 
-            // usernameLabel
-            // 
-            this.usernameLabel.AutoSize = true;
-            this.usernameLabel.Location = new System.Drawing.Point(104, 33);
-            this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(35, 13);
-            this.usernameLabel.TabIndex = 0;
-            this.usernameLabel.Text = "label1";
             // 
             // MainForm
             // 

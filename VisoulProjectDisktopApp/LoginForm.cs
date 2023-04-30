@@ -12,7 +12,8 @@ namespace VisoulProjectDisktopApp
 {
     public partial class LoginForm : Form
     {
-        FactoryRepo Frepo= new FactoryRepo();   
+        FactoryRepo Frepo= new FactoryRepo();
+        CookieManager cookieManager = new CookieManager();
         public LoginForm()
         {
             InitializeComponent();
@@ -25,8 +26,8 @@ namespace VisoulProjectDisktopApp
 
         private void submitBtn_Click(object sender, EventArgs e)
         {
-           if (Frepo.isUser(nameTxt.Text,passwordTxt.Text)) {
-                MainForm mainForm = new MainForm();
+           if (Frepo.isUser(nameTxt.Text,passwordTxt.Text,cookieManager)) {
+                MainForm mainForm = new MainForm(cookieManager);
                 this.Hide();
                 mainForm.ShowDialog();
                 this.Dispose();
@@ -34,6 +35,5 @@ namespace VisoulProjectDisktopApp
             else
                 errorMsg.Visible = true;
         }
-
     }
 }

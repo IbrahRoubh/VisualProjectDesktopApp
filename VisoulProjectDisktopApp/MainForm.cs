@@ -6,14 +6,18 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Net;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VisoulProjectDisktopApp.model;
 
 namespace VisoulProjectDisktopApp
 {
     public partial class MainForm : Form
     {
+        private FactroryModel factrory = new FactroryModel();
+        private FactoryRepo factoryRepo = new FactoryRepo();
         private CookieManager cookieManager;
         String username;
         public MainForm(CookieManager cookieManager)
@@ -24,11 +28,12 @@ namespace VisoulProjectDisktopApp
 
         private  void MainForm_Load(object sender, EventArgs e)
         {
-            CookieCollection cookies = cookieManager.GetCookie().GetCookies();
+            CookieCollection cookies = cookieManager.GetCookie().GetCookies(new Uri("http://localhost")); ;
             if (cookies["username"] != null)
             {
                 username = cookies["username"].Value;
             }
+            factoryRepo.loadFactory(factrory, username);
             setInfo();
         }
 
@@ -58,14 +63,38 @@ namespace VisoulProjectDisktopApp
         private void storgBox_onClick(object sender, EventArgs e)
         {
             mainPanel.Controls.Clear();
+
         }
 
         private void settingBox_onClick(object sender, EventArgs e)
         {
             mainPanel.Controls.Clear();
-            Label l = new Label();
-            l.Text = "seeting page>:";
-            mainPanel.Controls.Add(l);
+            TableLayoutPanel tableLayout = new TableLayoutPanel();
+            tableLayout.Dock = DockStyle.Fill;
+            tableLayout.RowCount = 4;
+            tableLayout.ColumnCount = 2;
+            tableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+
+            // Create the labels and add them to the TableLayoutPanel
+            Label SusernameLabel = new Label();
+            SusernameLabel.Text = factrory.name;
+            tableLayout.Controls.Add(SusernameLabel, 0, 0);
+
+            Label SlocationLabel = new Label();
+            SlocationLabel.Text = factrory.location;
+            tableLayout.Controls.Add(SlocationLabel, 0, 1);
+
+            Label SphoneNumLabel = new Label();
+            SphoneNumLabel.Text = factrory.phoneNum;
+            tableLayout.Controls.Add(SphoneNumLabel, 1, 0);
+
+            Label SpasswordLabel = new Label();
+            SpasswordLabel.Text = factrory.password;
+            tableLayout.Controls.Add(SpasswordLabel, 1, 1);
+
+            // Add the TableLayoutPanel to the main panel
+            mainPanel.Controls.Add(tableLayout);
         }
 
     }
