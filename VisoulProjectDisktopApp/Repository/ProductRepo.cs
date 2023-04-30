@@ -70,27 +70,34 @@ namespace VisoulProjectDisktopApp.Repository
                 conn.Close();
             }
         }
-        /*public ProductModel getProductByName(String naem)
+
+        public void addProduct(String name,String description,String code,int amount,int FID)
         {
             try
             {
-                String query = "SELECT * ";
-                SqlCommand command = new SqlCommand(query, conn);
+                String query = "INSERT INTO Product(name,description,code) VALUES('" + name + "','" + description + "','" + code + "')";
+                SqlCommand command = new SqlCommand(query,conn);
                 conn.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
+                command.ExecuteNonQuery();
 
-                }
+                String query2 = "SELECT ID FROM Product WHERE name = '"+name+"'";
+                command = new SqlCommand(query2,conn);
+                int PID = (int)command.ExecuteScalar();
+                
+                String query3 = "INSERT INTO report(amount,FID,PID) VALUES('" + amount + "','" + FID + "','"+PID+"')";
+                command = new SqlCommand(query3,conn);
+                command.ExecuteNonQuery();
+
+                MessageBox.Show("The product has been added successfully");
             }
-            catch
+            catch(Exception ex )
             {
-
+                MessageBox.Show("error "+ ex);
             }
             finally
             {
                 conn.Close();
             }
-        }*/
+        }
     }
 }

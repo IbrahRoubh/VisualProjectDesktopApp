@@ -267,10 +267,68 @@ namespace VisoulProjectDisktopApp
 
         }
 
-
+        TextBox PnameTextBox;
+        TextBox PdescriptionTextBox;
+        TextBox PcodeTextBox;
+        TextBox PamountTextBox;
         private void productBox_onClick(object sender, EventArgs e)
         {
-            MessageBox.Show("ok");
+            mainPanel.Controls.Clear();
+
+            PnameTextBox = new TextBox();
+            PdescriptionTextBox = new TextBox();
+            PcodeTextBox = new TextBox();
+            PamountTextBox = new TextBox();
+
+            PnameTextBox.Width = 200;
+            PdescriptionTextBox.Width = 200;
+            PcodeTextBox.Width = 200;
+            PamountTextBox.Width = 200;
+
+            Label nameLabel = new Label();
+            nameLabel.Text = "Name:";
+            nameLabel.Location = new Point(10, 10);
+
+            PnameTextBox.Location = new Point(110, 10);
+
+            Label descriptionLabel = new Label();
+            descriptionLabel.Text = "Description:";
+            descriptionLabel.Location = new Point(10, 40);
+
+            PdescriptionTextBox.Location = new Point(110, 40);
+
+            Label codeLabel = new Label();
+            codeLabel.Text = "Code:";
+            codeLabel.Location = new Point(10, 70);
+
+            PcodeTextBox.Location = new Point(110, 70);
+
+            Label amountLabel = new Label();
+            amountLabel.Text = "Amount:";
+            amountLabel.Location = new Point(10, 100);
+
+            PamountTextBox.Location = new Point(110, 100);
+
+            Button addButton = new Button();
+            addButton.Text = "Add Product";
+            addButton.Location = new Point(100, 130);
+            addButton.Click += new EventHandler(onAddProductClick);
+            addButton.BackColor = Color.Silver;
+
+            mainPanel.Controls.Add(nameLabel);
+            mainPanel.Controls.Add(PnameTextBox);
+            mainPanel.Controls.Add(descriptionLabel);
+            mainPanel.Controls.Add(PdescriptionTextBox);
+            mainPanel.Controls.Add(codeLabel);
+            mainPanel.Controls.Add(PcodeTextBox);
+            mainPanel.Controls.Add(amountLabel);
+            mainPanel.Controls.Add(PamountTextBox);
+            mainPanel.Controls.Add(addButton);
+        }
+
+        private void onAddProductClick(object sender, EventArgs e)
+        {
+            productRepo.addProduct(PnameTextBox.Text,PdescriptionTextBox.Text,PcodeTextBox.Text, int.Parse(PamountTextBox.Text),factrory.id);
         }
     }
 }
