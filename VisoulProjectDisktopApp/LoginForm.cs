@@ -26,13 +26,17 @@ namespace VisoulProjectDisktopApp
 
         private void submitBtn_Click(object sender, EventArgs e)
         {
-           if (Frepo.isUser(nameTxt.Text,passwordTxt.Text,cookieManager)) {
-                MainForm mainForm = new MainForm(cookieManager);
-                this.Hide();
-                mainForm.ShowDialog();
-                this.Dispose();
+            if(nameTxt.Text != null && nameTxt.Text.Length > 0 && passwordTxt.Text != null && passwordTxt.Text.Length > 0)
+            {
+                if (Frepo.isUser(nameTxt.Text, passwordTxt.Text, cookieManager))
+                {
+                    MainForm mainForm = new MainForm(cookieManager);
+                    this.Hide();
+                    mainForm.ShowDialog();
+                    this.Dispose();
+                }
+
             }
-            else
                 errorMsg.Visible = true;
         }
     }

@@ -20,6 +20,9 @@ namespace VisoulProjectDisktopApp
 {
     public partial class MainForm : Form
     {
+        
+
+
         private FactroryModel factrory = new FactroryModel();
 
         private FactoryRepo factoryRepo = new FactoryRepo();
@@ -34,7 +37,7 @@ namespace VisoulProjectDisktopApp
             InitializeComponent();
         }
 
-        private  void MainForm_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
             CookieCollection cookies = cookieManager.GetCookie().GetCookies(new Uri("http://localhost")); ;
             if (cookies["username"] != null)
@@ -58,6 +61,7 @@ namespace VisoulProjectDisktopApp
             storeGridView = new DataGridView();
             storeGridView.Dock = DockStyle.Fill;
             storeGridView.AutoGenerateColumns = false;
+            storeGridView.Columns.Add("ID", "Store ID");
             storeGridView.Columns.Add("name", "Store Name");
             storeGridView.Columns.Add("location", "Store Location");
 
@@ -68,26 +72,47 @@ namespace VisoulProjectDisktopApp
             storeGridView.Columns.Add(buttonColumn);
             storeGridView.CellContentClick += new DataGridViewCellEventHandler(onSelectStoreClick);
 
-            if(stores != null)
+            if (stores != null)
             {
-                foreach(StoreModel store in stores)
+                foreach (StoreModel store in stores)
                 {
-                    storeGridView.Rows.Add(store.name,store.location);
+                    storeGridView.Rows.Add(store.ID, store.name, store.location);
                 }
             }
 
             mainPanel.Controls.Add(storeGridView);
         }
 
+        DataGridView ProductDataGridView = new DataGridView();
         private void onSelectStoreClick(object sender, DataGridViewCellEventArgs e)
         {
             if (storeGridView.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
-                String name = (String)storeGridView.Rows[e.RowIndex].Cells["name"].Value;
+                int ID = (int)storeGridView.Rows[e.RowIndex].Cells["ID"].Value;
                 mainPanel.Controls.Clear();
+                List<ProductModel> products = storeRepo.getStoreProduscts(ID);
 
+                ProductDataGridView.Dock = DockStyle.Fill;
+                ProductDataGridView.Columns.Add("ID", "Product id");
+                ProductDataGridView.Columns.Add("name", "Name");
+                ProductDataGridView.Columns.Add("description", "Description");
+                ProductDataGridView.Columns.Add("code", "Code");
+                ProductDataGridView.Columns.Add("amount", "Amount in store");
+
+                foreach(ProductModel product in products)
+                {
+                    ProductDataGridView.Rows.Add(product.id, product.name, product.description, product.code, product.amount);
+                }
+
+                DataGridViewButtonColumn orderColumn = new DataGridViewButtonColumn();
+                orderColumn.HeaderText = "Order";
+                orderColumn.Text = "Order";
+                orderColumn.UseColumnTextForButtonValue = true;
+                ProductDataGridView.Columns.Add(orderColumn);
+                mainPanel.Controls.Add(ProductDataGridView);
             }
         }
+        
 
         private void requestBox_Click(object sender, EventArgs e)
         {
@@ -166,6 +191,7 @@ namespace VisoulProjectDisktopApp
                 nametextBox1.Location = new Point(120, 40);
                 nametextBox1.Size = new Size(200, 20);
                 nametextBox1.Text = name;
+                nametextBox1.ReadOnly = true;
 
                 Label descriptionLabel = new Label();
                 descriptionLabel.Location = new Point(10, 70);
@@ -359,7 +385,18 @@ namespace VisoulProjectDisktopApp
 
         private void onAddProductClick(object sender, EventArgs e)
         {
-            productRepo.addProduct(PnameTextBox.Text,PdescriptionTextBox.Text,PcodeTextBox.Text, int.Parse(PamountTextBox.Text),factrory.id);
+            try
+            {
+                if (PnameTextBox.Text != null && PnameTextBox.Text != "" && PcodeTextBox.Text != null && PcodeTextBox.Text != "")
+                {
+                    if (PamountTextBox.Text == "" || PamountTextBox.Text == null)
+                        PamountTextBox.Text = "0";
+                    productRepo.addProduct(PnameTextBox.Text, PdescriptionTextBox.Text, PcodeTextBox.Text, int.Parse(PamountTextBox.Text), factrory.id);
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show("error " + ex);
+            }
         }
     }
 }

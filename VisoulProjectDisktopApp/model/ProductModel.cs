@@ -12,7 +12,6 @@ namespace VisoulProjectDisktopApp.model
         public string name { get; set; }
         public string description { get; set; }
         public string code{ get; set; }
-
         public int amount { get; set; }
     }
 }

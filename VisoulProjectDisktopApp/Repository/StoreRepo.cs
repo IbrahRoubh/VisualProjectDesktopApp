@@ -42,5 +42,37 @@ namespace VisoulProjectDisktopApp.Repository
                 conn.Close();
             }
         }
+
+        public List<ProductModel> getStoreProduscts(int SID)
+        {
+            List<ProductModel> products = new List<ProductModel>();
+            try
+            {
+                String query = "SELECT Stok.amount, Product.* FROM Stok JOIN Product ON Stok.PID = Product.id\r\nWHERE Stok.SID = '"+ SID +"'";
+                SqlCommand command = new SqlCommand(query, conn);
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    ProductModel product = new ProductModel();
+                    product.id = (int)reader["ID"];
+                    product.name = (string)reader["name"];
+                    product.description = (string)reader["description"];
+                    product.code = (string)reader["code"];
+                    product.amount = (int)reader["amount"];
+                    products.Add(product);
+                }
+                return products;
+            }catch(Exception ex)
+            {
+                MessageBox.Show("error " + ex);
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
     }
 }
