@@ -109,11 +109,31 @@ namespace VisoulProjectDisktopApp
                 orderColumn.Text = "Order";
                 orderColumn.UseColumnTextForButtonValue = true;
                 ProductDataGridView.Columns.Add(orderColumn);
+                ProductDataGridView.CellContentClick += new DataGridViewCellEventHandler(toSlelectOrderAmount);
                 mainPanel.Controls.Add(ProductDataGridView);
             }
         }
-        
 
+        private void toSlelectOrderAmount(object sender, DataGridViewCellEventArgs e)
+        {
+            Label amountLabel = new Label();
+            TextBox amountTxt = new TextBox();
+            Button orderBtn = new Button();
+
+            amountLabel.Text = "Amount";
+            amountLabel.Location = new System.Drawing.Point(10, 10);
+
+            amountTxt.Location = new System.Drawing.Point(110, 10);
+
+            orderBtn.Text = "Order";
+            orderBtn.Location = new System.Drawing.Point(300, 10);
+            
+            mainPanel.Controls.Clear();
+            mainPanel.Controls.Add(amountLabel);
+            mainPanel.Controls.Add(amountTxt);
+            mainPanel.Controls.Add(orderBtn);
+        }
+        
         private void requestBox_Click(object sender, EventArgs e)
         {
             mainPanel.Controls.Clear();
