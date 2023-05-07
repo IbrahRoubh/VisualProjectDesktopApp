@@ -20,9 +20,6 @@ namespace VisoulProjectDisktopApp
 {
     public partial class MainForm : Form
     {
-        
-
-
         private FactroryModel factrory = new FactroryModel();
 
         private FactoryRepo factoryRepo = new FactoryRepo();
@@ -83,15 +80,18 @@ namespace VisoulProjectDisktopApp
             mainPanel.Controls.Add(storeGridView);
         }
 
-        DataGridView ProductDataGridView = new DataGridView();
+        DataGridView ProductDataGridView;
+
+        int SID;
         private void onSelectStoreClick(object sender, DataGridViewCellEventArgs e)
         {
             if (storeGridView.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
-                int ID = (int)storeGridView.Rows[e.RowIndex].Cells["ID"].Value;
+                SID = (int)storeGridView.Rows[e.RowIndex].Cells["ID"].Value;
                 mainPanel.Controls.Clear();
-                List<ProductModel> products = storeRepo.getStoreProduscts(ID);
+                List<ProductModel> products = storeRepo.getStoreProduscts(SID);
 
+                ProductDataGridView = new DataGridView();
                 ProductDataGridView.Dock = DockStyle.Fill;
                 ProductDataGridView.Columns.Add("ID", "Product id");
                 ProductDataGridView.Columns.Add("name", "Name");
@@ -114,26 +114,48 @@ namespace VisoulProjectDisktopApp
             }
         }
 
+        
+        int PID;
+        private TextBox amountTxt;
         private void toSlelectOrderAmount(object sender, DataGridViewCellEventArgs e)
         {
-            Label amountLabel = new Label();
-            TextBox amountTxt = new TextBox();
-            Button orderBtn = new Button();
+                PID = (int)ProductDataGridView.Rows[e.RowIndex].Cells["ID"].Value;
 
-            amountLabel.Text = "Amount";
-            amountLabel.Location = new System.Drawing.Point(10, 10);
+                Label amountLabel = new Label();
+                amountTxt= new TextBox();
+                Button orderBtn = new Button();
 
-            amountTxt.Location = new System.Drawing.Point(110, 10);
+                amountLabel.Text = "Amount";
+                amountLabel.Location = new System.Drawing.Point(10, 10);
 
-            orderBtn.Text = "Order";
-            orderBtn.Location = new System.Drawing.Point(300, 10);
-            
-            mainPanel.Controls.Clear();
-            mainPanel.Controls.Add(amountLabel);
-            mainPanel.Controls.Add(amountTxt);
-            mainPanel.Controls.Add(orderBtn);
+                amountTxt.Location = new System.Drawing.Point(110, 10);
+
+                orderBtn.Text = "Order";
+                orderBtn.Location = new System.Drawing.Point(300, 10);
+                orderBtn.Click += new EventHandler(onOrderBtnClick);
+
+                mainPanel.Controls.Clear();
+                mainPanel.Controls.Add(amountLabel);
+                mainPanel.Controls.Add(amountTxt);
+                mainPanel.Controls.Add(orderBtn);
         }
         
+        private void onOrderBtnClick(object sender, EventArgs e)
+        {
+            if (int.TryParse(amountTxt.Text, out int amount))
+            {
+                if(storeRepo.productOrderFromStore(PID, factrory.id, SID, amount))
+                {
+                    MessageBox.Show("The order done successful");
+                    storeBox_onClick(sender,e);
+                }
+            }
+            else
+            {
+                MessageBox.Show("error invalid input, it should be number");
+            }
+        }
+
         private void requestBox_Click(object sender, EventArgs e)
         {
             mainPanel.Controls.Clear();
