@@ -90,7 +90,7 @@ namespace VisoulProjectDisktopApp
             
         }
 
-        public List<Supplies> getOrders(int FID)
+        public List<SuppliesModel> getOrders(int FID)
         {
             try
             {
@@ -98,19 +98,19 @@ namespace VisoulProjectDisktopApp
                 SqlCommand command = new SqlCommand(query,conn);
                 conn.Open();
                 SqlDataReader reader = command.ExecuteReader();
-                List<Supplies> supplies = new List<Supplies>();
+                List<SuppliesModel> supplies = new List<SuppliesModel>();
 
                 while (reader.Read())
                 {
-                    Supplies supplie = new Supplies();
+                    SuppliesModel supplie = new SuppliesModel();
                     supplie.id = (int)reader["ID"];
                     supplie.FID = (int)reader["FID"];
                     supplie.SID = (int)reader["SID"];
                     supplie.PID = (int)reader["PID"];
                     supplie.amount = (int)reader["amount"];
-                    supplie.Direction = (String)reader["Direction"];
                     supplie.date_of_arrival = (DateTime)reader["date_of_arrival"];
-                    supplie.status = (String)reader["Status"];
+                    supplie.Direction = ((String)reader["Direction"]).Trim();
+                    supplie.status = ((String)reader["Status"]).Trim();
 
                     supplies.Add(supplie);
                 }
@@ -127,7 +127,7 @@ namespace VisoulProjectDisktopApp
             }
         } 
 
-        public List<Supplies> getRequest(int FID)
+        public List<SuppliesModel> getRequest(int FID)
         {
             try
             {
@@ -135,19 +135,19 @@ namespace VisoulProjectDisktopApp
                 SqlCommand command = new SqlCommand(query, conn);
                 conn.Open();
                 SqlDataReader reader = command.ExecuteReader();
-                List<Supplies> supplies = new List<Supplies>();
+                List<SuppliesModel> supplies = new List<SuppliesModel>();
 
                 while (reader.Read())
                 {
-                    Supplies supplie = new Supplies();
+                    SuppliesModel supplie = new SuppliesModel();
                     supplie.id = (int)reader["ID"];
                     supplie.FID = (int)reader["FID"];
                     supplie.SID = (int)reader["SID"];
                     supplie.PID = (int)reader["PID"];
                     supplie.amount = (int)reader["amount"];
-                    supplie.Direction = (String)reader["Direction"];
+                    supplie.Direction = ((String)reader["Direction"]).Trim();
                     supplie.date_of_arrival = (DateTime)reader["date_of_arrival"];
-                    supplie.status = (String)reader["Status"];
+                    supplie.status = ((String)reader["Status"]).Trim();
 
                     supplies.Add(supplie);
                 }
@@ -162,5 +162,6 @@ namespace VisoulProjectDisktopApp
                 conn.Close();
             }
         }
+
     }
 }

@@ -25,6 +25,7 @@ namespace VisoulProjectDisktopApp
         private FactoryRepo factoryRepo = new FactoryRepo();
         private ProductRepo productRepo = new ProductRepo();
         private StoreRepo storeRepo = new StoreRepo();
+        private SuppliesRepo suppliesRepo = new SuppliesRepo();
 
         private CookieManager cookieManager;
         String username;
@@ -153,13 +154,14 @@ namespace VisoulProjectDisktopApp
             }
         }
 
-        //not finshied
+        
+        DataGridView requestDataGrid;
         private void requestBox_Click(object sender, EventArgs e)
         {
             
-            List<Supplies> supplies = factoryRepo.getRequest(factrory.id);
+            List<SuppliesModel> supplies = factoryRepo.getRequest(factrory.id);
 
-            DataGridView requestDataGrid = new DataGridView();
+            requestDataGrid = new DataGridView();
             requestDataGrid.Dock = DockStyle.Fill;
             requestDataGrid.AutoGenerateColumns = false;
             requestDataGrid.Columns.Add("ID","ID");
@@ -167,9 +169,16 @@ namespace VisoulProjectDisktopApp
             requestDataGrid.Columns.Add("PCode", "Product code");
             requestDataGrid.Columns.Add("Amount", "Amount");
 
+            DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
+            buttonColumn.HeaderText = "Button Column";
+            buttonColumn.Text = "done and shipped";
+            buttonColumn.UseColumnTextForButtonValue = true;
+            requestDataGrid.Columns.Add(buttonColumn);
+            requestDataGrid.CellContentClick += new DataGridViewCellEventHandler(onDoneShippedClick);
+
             if (supplies != null)
             {
-                foreach (Supplies supplie in supplies)
+                foreach (SuppliesModel supplie in supplies)
                 {
                     ProductModel product = productRepo.getProduct(supplie.PID);
                     if(product != null)
@@ -179,6 +188,27 @@ namespace VisoulProjectDisktopApp
 
             mainPanel.Controls.Clear();
             mainPanel.Controls.Add(requestDataGrid);
+        }
+
+        
+        private void onDoneShippedClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = (int)requestDataGrid.Rows[e.RowIndex].Cells["ID"].Value;
+
+            DialogResult result = MessageBox.Show("Do you want to report request which have id=" + id + " as shipped?", "Confirmation", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                if (suppliesRepo.isStateChange(id, "s"))
+                {
+                    MessageBox.Show("State change, thank you");
+                    requestBox_Click(sender, new EventArgs());
+                }
+                else
+                {
+                    MessageBox.Show("For some resoun we could not change the state!!!");
+                }
+            }
         }
 
         DataGridView productGridView;
@@ -456,10 +486,71 @@ namespace VisoulProjectDisktopApp
             }
         }
 
+        
+        DataGridView trackOrderTable;
         private void tracikOrder_Click(object sender, EventArgs e)
         {
-            List<Supplies> supplies = factoryRepo.getOrders(factrory.id);
+            List<SuppliesModel> supplies = factoryRepo.getOrders(factrory.id);
+
+            trackOrderTable= new DataGridView();
+            trackOrderTable.Dock = DockStyle.Fill;
+            trackOrderTable.AutoGenerateColumns = false;
+            trackOrderTable.Columns.Add("ID","ID");
+            trackOrderTable.Columns.Add("Pname", "Product name");
+            trackOrderTable.Columns.Add("Pcode", "Product code");
+            trackOrderTable.Columns.Add("amount", "Amount");
+            trackOrderTable.Columns.Add("state", "Shipment status");
+            trackOrderTable.Columns.Add("Date", "Arrival date");
+
+            DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
+            buttonColumn.HeaderText = "Button Column";
+            buttonColumn.Text = "Shipment received";
+            buttonColumn.UseColumnTextForButtonValue = true;
+            trackOrderTable.Columns.Add(buttonColumn);
+            trackOrderTable.CellContentClick += new DataGridViewCellEventHandler(onShipmentReceivedClick);
+
+            if (supplies != null)
+            {
+                foreach(SuppliesModel supplie in supplies)
+                {
+                    ProductModel product = productRepo.getProduct(supplie.PID);
+                    String state = null;
+                    if (string.Equals(supplie.status, 'o'.ToString()))
+                    {
+                        state = "Ordered";
+                    }
+                    else if(string.Equals(supplie.status, 's'.ToString()))
+                    {
+                        state = "Shipped";
+                    }
+                    if (product != null)
+                    {
+                        trackOrderTable.Rows.Add(supplie.id, product.name, product.code, supplie.amount, state, supplie.date_of_arrival);
+                    }
+                }
+            }
             mainPanel.Controls.Clear();
+            mainPanel.Controls.Add(trackOrderTable);
+        }
+
+        private void onShipmentReceivedClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id=(int)trackOrderTable.Rows[e.RowIndex].Cells["ID"].Value;
+
+            DialogResult result = MessageBox.Show("Do you want to report Shippend which have id="+id+" as recived?", "Confirmation", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                if (suppliesRepo.isStateChange(id,"d"))
+                {
+                    MessageBox.Show("State change, thank you");
+                    tracikOrder_Click(sender, new EventArgs());
+                }
+                else
+                {
+                    MessageBox.Show("For some resoun we could not change the state!!!");
+                }
+            }
         }
     }
 }

@@ -49,7 +49,7 @@
     <Compile Include="CookieManager.cs" />
     <Compile Include="model\ProductModel.cs" />
     <Compile Include="model\StoreModel.cs" />
-    <Compile Include="model\Supplies.cs" />
+    <Compile Include="model\SuppliesModel.cs" />
     <Compile Include="Repository\FactoryRepo.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -68,6 +68,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ProductRepo.cs" />
     <Compile Include="Repository\StoreRepo.cs" />
+    <Compile Include="Repository\SuppliesRepo.cs" />
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>

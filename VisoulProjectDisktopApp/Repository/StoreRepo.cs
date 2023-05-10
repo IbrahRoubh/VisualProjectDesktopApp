@@ -113,6 +113,18 @@ namespace VisoulProjectDisktopApp.Repository
                         DialogResult result = MessageBox.Show(message, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (result == DialogResult.Yes)
                         {
+                            int ManufacturerNumber;
+                            try
+                            {
+                                String query3 = "SELECT FID FROM Product WHERE ID='"+PID+"'";
+                                SqlCommand command3 = new SqlCommand(query3,conn);
+                                ManufacturerNumber =(int)command3.ExecuteScalar();
+                            }catch(Exception ex)
+                            {
+                                MessageBox.Show("error"+ ex);
+                                return false;
+                            }
+
                             if (DBamount != 0)
                             {
                                 try
@@ -122,7 +134,8 @@ namespace VisoulProjectDisktopApp.Repository
                                     int newAmount = amount - DBamount;
                                     String query3 = "INSERT INTO supplies(SID,FID,PID,amount,Direction,date_of_arrival, Status) " +
                                         "VALUES('" + SID + "', '" + FID + "' ,'" + PID + "','" + DBamount + "','f','" + date + "','s'), " +
-                                        "('" + SID + "', '" + FID + "' ,'" + PID + "', '" + newAmount + "', 'f', '" + date2 + "', 'o');" +
+                                        "('" + SID + "', '" + FID + "' ,'" + PID + "', '" + newAmount + "', 'f', '" + date2 + "', 'o')," +
+                                        "('" + SID + "','" + ManufacturerNumber + "','" + PID + "','" + newAmount + "', 's' ,'" + date2 + "', 'o');" +
                                         " UPDATE Stok SET amount = amount- '" + DBamount + "' WHERE Stok.SID = '" + SID + "' AND Stok.PID ='" + PID + "';";
                                     SqlCommand command3 = new SqlCommand(query3, conn);
                                     command3.ExecuteNonQuery();
@@ -140,7 +153,8 @@ namespace VisoulProjectDisktopApp.Repository
                                 {
                                     DateTime date = GetDate(33);
                                     String query4 = "INSERT INTO supplies(SID,FID,PID,amount,Direction,date_of_arrival, Status)" +
-                                        "VALUES('" + SID + "', '" + FID + "' ,'" + PID + "','" + amount + "','f','" + date + "','o') ";
+                                        "VALUES('" + SID + "', '" + FID + "' ,'" + PID + "','" + amount + "','f','" + date + "','o'), " +
+                                        "('" + SID + "', '" + ManufacturerNumber + "' ,'" + PID + "','" + amount + "', 's' ,'" + date + "','o') ;";
                                     SqlCommand command4 = new SqlCommand(query4, conn);
                                     command4.ExecuteNonQuery();
                                     return true;
