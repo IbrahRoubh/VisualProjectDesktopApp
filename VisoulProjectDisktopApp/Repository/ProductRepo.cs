@@ -32,6 +32,7 @@ namespace VisoulProjectDisktopApp.Repository
                     product.description = (string)reader["description"];
                     product.code = (string)reader["code"];
                     product.amount = (int)reader["amount"];
+                    product.FID = (int)reader["FID"];
 
                     products.Add(product);
                 }
@@ -75,7 +76,7 @@ namespace VisoulProjectDisktopApp.Repository
         {
             try
             {
-                String query = "INSERT INTO Product(name,description,code) VALUES('" + name + "','" + description + "','" + code + "')";
+                String query = "INSERT INTO Product(name,description,code,FID) VALUES('" + name + "','" + description + "','" + code + "','"+FID+"')";
                 SqlCommand command = new SqlCommand(query,conn);
                 conn.Open();
                 command.ExecuteNonQuery();
@@ -93,6 +94,38 @@ namespace VisoulProjectDisktopApp.Repository
             catch(Exception ex )
             {
                 MessageBox.Show("error "+ ex);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public ProductModel getProduct(int PID)
+        {
+            try
+            {
+                String query = "SELECT * FROM Product WHERE ID ='"+ PID +"';";
+                SqlCommand command = new SqlCommand(query,conn);
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                ProductModel product = new ProductModel();
+                if (reader.Read())
+                {
+                    product.id = (int)reader["ID"];
+                    product.name = (String)reader["name"];
+                    product.description = (String)reader["description"];
+                    product.code = (String)reader["code"];
+                    product.FID = (int)reader["FID"];
+                }
+
+                return product;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("error for= "+PID+"  " + ex);
+                return null;
             }
             finally
             {

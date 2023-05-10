@@ -89,5 +89,78 @@ namespace VisoulProjectDisktopApp
             }
             
         }
+
+        public List<Supplies> getOrders(int FID)
+        {
+            try
+            {
+                String query = "SELECT * FROM supplies WHERE FID ='"+ FID +"' AND Direction ='f' AND Status !='d'; ";
+                SqlCommand command = new SqlCommand(query,conn);
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                List<Supplies> supplies = new List<Supplies>();
+
+                while (reader.Read())
+                {
+                    Supplies supplie = new Supplies();
+                    supplie.id = (int)reader["ID"];
+                    supplie.FID = (int)reader["FID"];
+                    supplie.SID = (int)reader["SID"];
+                    supplie.PID = (int)reader["PID"];
+                    supplie.amount = (int)reader["amount"];
+                    supplie.Direction = (String)reader["Direction"];
+                    supplie.date_of_arrival = (DateTime)reader["date_of_arrival"];
+                    supplie.status = (String)reader["Status"];
+
+                    supplies.Add(supplie);
+                }
+                return supplies;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("error "+ ex);
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        } 
+
+        public List<Supplies> getRequest(int FID)
+        {
+            try
+            {
+                String query = "SELECT * FROM supplies WHERE FID ='"+FID+"' AND Direction ='s' AND Status ='o'";
+                SqlCommand command = new SqlCommand(query, conn);
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                List<Supplies> supplies = new List<Supplies>();
+
+                while (reader.Read())
+                {
+                    Supplies supplie = new Supplies();
+                    supplie.id = (int)reader["ID"];
+                    supplie.FID = (int)reader["FID"];
+                    supplie.SID = (int)reader["SID"];
+                    supplie.PID = (int)reader["PID"];
+                    supplie.amount = (int)reader["amount"];
+                    supplie.Direction = (String)reader["Direction"];
+                    supplie.date_of_arrival = (DateTime)reader["date_of_arrival"];
+                    supplie.status = (String)reader["Status"];
+
+                    supplies.Add(supplie);
+                }
+                return supplies;
+            }catch(Exception ex)
+            {
+                MessageBox.Show("error" + ex);
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
     }
 }

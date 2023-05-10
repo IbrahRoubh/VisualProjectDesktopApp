@@ -121,8 +121,8 @@ namespace VisoulProjectDisktopApp.Repository
                                     DateTime date2 = GetDate(33);
                                     int newAmount = amount - DBamount;
                                     String query3 = "INSERT INTO supplies(SID,FID,PID,amount,Direction,date_of_arrival, Status) " +
-                                        "VALUES('" + SID + "', '" + FID + "' ,'" + PID + "','" + DBamount + "',f,'" + date + "',s), " +
-                                        "('" + SID + "', '" + FID + "' ,'" + PID + "', '" + newAmount + "', f, '" + date2 + "', o);" +
+                                        "VALUES('" + SID + "', '" + FID + "' ,'" + PID + "','" + DBamount + "','f','" + date + "','s'), " +
+                                        "('" + SID + "', '" + FID + "' ,'" + PID + "', '" + newAmount + "', 'f', '" + date2 + "', 'o');" +
                                         " UPDATE Stok SET amount = amount- '" + DBamount + "' WHERE Stok.SID = '" + SID + "' AND Stok.PID ='" + PID + "';";
                                     SqlCommand command3 = new SqlCommand(query3, conn);
                                     command3.ExecuteNonQuery();
@@ -140,9 +140,9 @@ namespace VisoulProjectDisktopApp.Repository
                                 {
                                     DateTime date = GetDate(33);
                                     String query4 = "INSERT INTO supplies(SID,FID,PID,amount,Direction,date_of_arrival, Status)" +
-                                        "VALUES('" + SID + "', '" + FID + "' ,'" + PID + "','" + amount + "',f,'" + date + "',o) ";
+                                        "VALUES('" + SID + "', '" + FID + "' ,'" + PID + "','" + amount + "','f','" + date + "','o') ";
                                     SqlCommand command4 = new SqlCommand(query4, conn);
-                                    command.ExecuteNonQuery();
+                                    command4.ExecuteNonQuery();
                                     return true;
                                 }
                                 catch (Exception ex)
@@ -173,7 +173,6 @@ namespace VisoulProjectDisktopApp.Repository
                 conn.Close();
             }
         }
-
 
         private DateTime GetDate(int days)
         {

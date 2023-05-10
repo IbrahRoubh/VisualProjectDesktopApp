@@ -53,7 +53,6 @@ namespace VisoulProjectDisktopApp
         DataGridView storeGridView;
         private void storeBox_onClick(object sender, EventArgs e)
         {
-            mainPanel.Controls.Clear();
             List<StoreModel> stores = storeRepo.getStores();
             storeGridView = new DataGridView();
             storeGridView.Dock = DockStyle.Fill;
@@ -76,19 +75,17 @@ namespace VisoulProjectDisktopApp
                     storeGridView.Rows.Add(store.ID, store.name, store.location);
                 }
             }
-
+            mainPanel.Controls.Clear();
             mainPanel.Controls.Add(storeGridView);
         }
 
         DataGridView ProductDataGridView;
-
         int SID;
         private void onSelectStoreClick(object sender, DataGridViewCellEventArgs e)
         {
             if (storeGridView.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
                 SID = (int)storeGridView.Rows[e.RowIndex].Cells["ID"].Value;
-                mainPanel.Controls.Clear();
                 List<ProductModel> products = storeRepo.getStoreProduscts(SID);
 
                 ProductDataGridView = new DataGridView();
@@ -103,11 +100,11 @@ namespace VisoulProjectDisktopApp
                 {
                     ProductDataGridView.Rows.Add(product.id, product.name, product.description, product.code, product.amount);
                 }
-
                 DataGridViewButtonColumn orderColumn = new DataGridViewButtonColumn();
                 orderColumn.HeaderText = "Order";
                 orderColumn.Text = "Order";
                 orderColumn.UseColumnTextForButtonValue = true;
+                mainPanel.Controls.Clear();
                 ProductDataGridView.Columns.Add(orderColumn);
                 ProductDataGridView.CellContentClick += new DataGridViewCellEventHandler(toSlelectOrderAmount);
                 mainPanel.Controls.Add(ProductDataGridView);
@@ -156,19 +153,39 @@ namespace VisoulProjectDisktopApp
             }
         }
 
+        //not finshied
         private void requestBox_Click(object sender, EventArgs e)
         {
+            
+            List<Supplies> supplies = factoryRepo.getRequest(factrory.id);
+
+            DataGridView requestDataGrid = new DataGridView();
+            requestDataGrid.Dock = DockStyle.Fill;
+            requestDataGrid.AutoGenerateColumns = false;
+            requestDataGrid.Columns.Add("ID","ID");
+            requestDataGrid.Columns.Add("PName", "Product name");
+            requestDataGrid.Columns.Add("PCode", "Product code");
+            requestDataGrid.Columns.Add("Amount", "Amount");
+
+            if (supplies != null)
+            {
+                foreach (Supplies supplie in supplies)
+                {
+                    ProductModel product = productRepo.getProduct(supplie.PID);
+                    if(product != null)
+                    requestDataGrid.Rows.Add(supplie.id, product.name, product.code, supplie.amount);
+                }
+            }
+
             mainPanel.Controls.Clear();
-            Label l = new Label();
-            l.Text = "hi there";
-            mainPanel.Controls.Add(l);
+            mainPanel.Controls.Add(requestDataGrid);
         }
 
         DataGridView productGridView;
         private void storgBox_onClick(object sender, EventArgs e)
         {
-            mainPanel.Controls.Clear();
             List<ProductModel> products = productRepo.getProductsByFactoryID(factrory.id);
+
             productGridView = new DataGridView();
             productGridView.Dock = DockStyle.Fill;
             productGridView.AutoGenerateColumns = false;
@@ -193,6 +210,7 @@ namespace VisoulProjectDisktopApp
                     productGridView.Rows.Add(product.id,product.name, product.description, product.code, product.amount);
                 }
             }
+            mainPanel.Controls.Clear();
             mainPanel.Controls.Add(productGridView);
         }
 
@@ -210,8 +228,6 @@ namespace VisoulProjectDisktopApp
                 String code = (String)productGridView.Rows[e.RowIndex].Cells["Code"].Value;
                 int amount = (int)productGridView.Rows[e.RowIndex].Cells["Amount"].Value;
                 int id = (int)productGridView.Rows[e.RowIndex].Cells["ID"].Value;
-
-                mainPanel.Controls.Clear();
 
                 Label idLabel = new Label();
                 idLabel.Location = new Point(10, 10);
@@ -272,6 +288,7 @@ namespace VisoulProjectDisktopApp
                 updateButton.BackColor = Color.Silver;
                 updateButton.Click += new System.EventHandler(this.onUpdateClick);
 
+                mainPanel.Controls.Clear();
                 mainPanel.Controls.Add(idLabel);
                 mainPanel.Controls.Add(idtextBox1);
                 mainPanel.Controls.Add(nameLabel);
@@ -300,7 +317,6 @@ namespace VisoulProjectDisktopApp
         private void settingBox_onClick(object sender, EventArgs e)
         {
             factoryRepo.loadFactory(factrory, factrory.name);
-            mainPanel.Controls.Clear();
             TableLayoutPanel tableLayout = new TableLayoutPanel();
             tableLayout.Dock = DockStyle.Fill;
             tableLayout.RowCount = 5;
@@ -356,7 +372,7 @@ namespace VisoulProjectDisktopApp
             updateButton.Text = "Update";
             updateButton.Click += new EventHandler(onUpdateUserClick);
             tableLayout.Controls.Add(updateButton, 2, 4);
-
+            mainPanel.Controls.Clear();
             mainPanel.Controls.Add(tableLayout);
         }
 
@@ -372,8 +388,6 @@ namespace VisoulProjectDisktopApp
         TextBox PamountTextBox;
         private void productBox_onClick(object sender, EventArgs e)
         {
-            mainPanel.Controls.Clear();
-
             PnameTextBox = new TextBox();
             PdescriptionTextBox = new TextBox();
             PcodeTextBox = new TextBox();
@@ -414,6 +428,7 @@ namespace VisoulProjectDisktopApp
             addButton.Click += new EventHandler(onAddProductClick);
             addButton.BackColor = Color.Silver;
 
+            mainPanel.Controls.Clear();
             mainPanel.Controls.Add(nameLabel);
             mainPanel.Controls.Add(PnameTextBox);
             mainPanel.Controls.Add(descriptionLabel);
@@ -439,6 +454,12 @@ namespace VisoulProjectDisktopApp
             {
                 MessageBox.Show("error " + ex);
             }
+        }
+
+        private void tracikOrder_Click(object sender, EventArgs e)
+        {
+            List<Supplies> supplies = factoryRepo.getOrders(factrory.id);
+            mainPanel.Controls.Clear();
         }
     }
 }
