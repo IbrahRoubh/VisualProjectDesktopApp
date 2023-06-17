@@ -10,7 +10,7 @@ namespace VisoulProjectDisktopApp.Repository
 {
     internal class SuppliesRepo
     {
-        SqlConnection conn = new SqlConnection("Data Source=DESKTOP-NEQA9MK;Initial Catalog=VisoulProjectDB;Persist Security Info=True;User ID=ibrahim;Password=1133");
+        SqlConnection conn = new SqlConnection("Data Source=DESKTOP-NEQA9MK;Initial Catalog=VisoulProjectDB;Persist Security Info=True;User ID=ibrahim;Password=123");
 
         public Boolean isStateChange(int id,String newState)
         {

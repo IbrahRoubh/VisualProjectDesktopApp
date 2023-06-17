@@ -12,7 +12,7 @@ namespace VisoulProjectDisktopApp
 {
     internal class FactoryRepo
     {
-        SqlConnection conn = new SqlConnection("Data Source=DESKTOP-NEQA9MK;Initial Catalog=VisoulProjectDB;Persist Security Info=True;User ID=ibrahim;Password=1133");
+        SqlConnection conn = new SqlConnection("Data Source=DESKTOP-NEQA9MK;Initial Catalog=VisoulProjectDB;Persist Security Info=True;User ID=ibrahim;Password=123");
         public Boolean isUser(String username,String password,CookieManager cookieManager)
         {
             try
@@ -20,11 +20,19 @@ namespace VisoulProjectDisktopApp
                 String query = "SELECT password from Factory where name = '" + username + "'";
                 SqlCommand command = new SqlCommand(query, conn);
                 conn.Open();
-                string DBpassword = command.ExecuteScalar().ToString();
-                if (password == DBpassword)
+                var excutedResult = command.ExecuteScalar();
+                if (excutedResult != null)
                 {
-                    cookieManager.setCooike(username);
-                    return true;
+                    string DBpassword = excutedResult.ToString();
+                    if (password == DBpassword)
+                    {
+                        cookieManager.setCooike(username);
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
                 else
                 {

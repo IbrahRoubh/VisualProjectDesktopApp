@@ -39,5 +39,13 @@ namespace VisoulProjectDisktopApp
             }
                 errorMsg.Visible = true;
         }
+
+        private void signupLink_Click(object sender, EventArgs e)
+        {
+            SignupForm signupForm = new SignupForm();
+            this.Hide();
+            signupForm.ShowDialog();
+            this.Dispose();
+        }
     }
 }

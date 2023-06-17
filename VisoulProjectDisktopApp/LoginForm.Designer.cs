@@ -30,11 +30,12 @@
         {
             this.nameLabel = new System.Windows.Forms.Label();
             this.passwordLabel = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.passwordTxt = new System.Windows.Forms.TextBox();
             this.nameTxt = new System.Windows.Forms.TextBox();
             this.submitBtn = new System.Windows.Forms.Button();
             this.errorMsg = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.signupLink = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,14 +56,6 @@
             this.passwordLabel.Size = new System.Drawing.Size(74, 27);
             this.passwordLabel.TabIndex = 1;
             this.passwordLabel.Text = "Password";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(2, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(156, 359);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // passwordTxt
             // 
@@ -103,11 +96,33 @@
             this.errorMsg.Text = "Name or password are wrong";
             this.errorMsg.Visible = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(2, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(156, 359);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // signupLink
+            // 
+            this.signupLink.AutoSize = true;
+            this.signupLink.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.signupLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signupLink.ForeColor = System.Drawing.Color.Blue;
+            this.signupLink.Location = new System.Drawing.Point(347, 298);
+            this.signupLink.Name = "signupLink";
+            this.signupLink.Size = new System.Drawing.Size(165, 20);
+            this.signupLink.TabIndex = 7;
+            this.signupLink.Text = "Do not have account?";
+            this.signupLink.Click += new System.EventHandler(this.signupLink_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(555, 383);
+            this.Controls.Add(this.signupLink);
             this.Controls.Add(this.errorMsg);
             this.Controls.Add(this.submitBtn);
             this.Controls.Add(this.nameTxt);
@@ -115,6 +130,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.nameLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "LoginForm";
             this.Text = "LoginForm";
             this.Load += new System.EventHandler(this.LoginForm_Load);
@@ -133,5 +149,6 @@
         private System.Windows.Forms.TextBox nameTxt;
         private System.Windows.Forms.Button submitBtn;
         private System.Windows.Forms.Label errorMsg;
+        private System.Windows.Forms.Label signupLink;
     }
 }

@@ -11,7 +11,7 @@ namespace VisoulProjectDisktopApp.Repository
 {
     internal class StoreRepo
     {
-        SqlConnection conn = new SqlConnection("Data Source=DESKTOP-NEQA9MK;Initial Catalog=VisoulProjectDB;Persist Security Info=True;User ID=ibrahim;Password=1133");
+        SqlConnection conn = new SqlConnection("Data Source=DESKTOP-NEQA9MK;Initial Catalog=VisoulProjectDB;Persist Security Info=True;User ID=ibrahim;Password=123");
 
         public List<StoreModel> getStores()
         {
