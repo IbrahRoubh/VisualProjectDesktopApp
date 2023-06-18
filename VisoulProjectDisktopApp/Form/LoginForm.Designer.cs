@@ -31,11 +31,13 @@
             this.nameLabel = new System.Windows.Forms.Label();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.passwordTxt = new System.Windows.Forms.TextBox();
-            this.nameTxt = new System.Windows.Forms.TextBox();
+            this.emailTxt = new System.Windows.Forms.TextBox();
             this.submitBtn = new System.Windows.Forms.Button();
             this.errorMsg = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.signupLink = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.roleComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,7 +48,7 @@
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(74, 27);
             this.nameLabel.TabIndex = 0;
-            this.nameLabel.Text = "Name";
+            this.nameLabel.Text = "Email";
             // 
             // passwordLabel
             // 
@@ -65,18 +67,18 @@
             this.passwordTxt.Size = new System.Drawing.Size(213, 20);
             this.passwordTxt.TabIndex = 2;
             // 
-            // nameTxt
+            // emailTxt
             // 
-            this.nameTxt.Location = new System.Drawing.Point(299, 29);
-            this.nameTxt.Name = "nameTxt";
-            this.nameTxt.Size = new System.Drawing.Size(213, 20);
-            this.nameTxt.TabIndex = 1;
+            this.emailTxt.Location = new System.Drawing.Point(299, 29);
+            this.emailTxt.Name = "emailTxt";
+            this.emailTxt.Size = new System.Drawing.Size(213, 20);
+            this.emailTxt.TabIndex = 1;
             // 
             // submitBtn
             // 
             this.submitBtn.BackColor = System.Drawing.Color.Silver;
             this.submitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.submitBtn.Location = new System.Drawing.Point(408, 166);
+            this.submitBtn.Location = new System.Drawing.Point(409, 232);
             this.submitBtn.Name = "submitBtn";
             this.submitBtn.Size = new System.Drawing.Size(103, 39);
             this.submitBtn.TabIndex = 3;
@@ -89,7 +91,7 @@
             this.errorMsg.AutoSize = true;
             this.errorMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorMsg.ForeColor = System.Drawing.Color.Red;
-            this.errorMsg.Location = new System.Drawing.Point(306, 115);
+            this.errorMsg.Location = new System.Drawing.Point(307, 103);
             this.errorMsg.Name = "errorMsg";
             this.errorMsg.Size = new System.Drawing.Size(205, 18);
             this.errorMsg.TabIndex = 6;
@@ -117,22 +119,48 @@
             this.signupLink.Text = "Do not have account?";
             this.signupLink.Click += new System.EventHandler(this.signupLink_Click);
             // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(195, 143);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 27);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Role";
+            // 
+            // roleComboBox
+            // 
+            this.roleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.roleComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roleComboBox.FormattingEnabled = true;
+            this.roleComboBox.Items.AddRange(new object[] {
+            "Customer",
+            "Factory",
+            "Warehouse"});
+            this.roleComboBox.Location = new System.Drawing.Point(299, 138);
+            this.roleComboBox.Name = "roleComboBox";
+            this.roleComboBox.Size = new System.Drawing.Size(213, 26);
+            this.roleComboBox.TabIndex = 9;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(555, 383);
+            this.Controls.Add(this.roleComboBox);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.signupLink);
             this.Controls.Add(this.errorMsg);
             this.Controls.Add(this.submitBtn);
-            this.Controls.Add(this.nameTxt);
+            this.Controls.Add(this.emailTxt);
             this.Controls.Add(this.passwordTxt);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.nameLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "LoginForm";
-            this.Text = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Login";
             this.Load += new System.EventHandler(this.LoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -146,9 +174,11 @@
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox passwordTxt;
-        private System.Windows.Forms.TextBox nameTxt;
+        private System.Windows.Forms.TextBox emailTxt;
         private System.Windows.Forms.Button submitBtn;
         private System.Windows.Forms.Label errorMsg;
         private System.Windows.Forms.Label signupLink;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox roleComboBox;
     }
 }

@@ -12,7 +12,7 @@ namespace VisoulProjectDisktopApp.model
         public String name { get; set; }
         public String location { get; set; }
         public String phoneNum { get; set; }
-        public String type { get; set; }
+        public String email { get; set; }
         public String password { get; set; }
 
 

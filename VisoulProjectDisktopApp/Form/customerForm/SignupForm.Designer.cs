@@ -66,11 +66,11 @@
             // 
             this.loginLink.AutoSize = true;
             this.loginLink.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.loginLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginLink.ForeColor = System.Drawing.Color.Blue;
-            this.loginLink.Location = new System.Drawing.Point(436, 330);
+            this.loginLink.Location = new System.Drawing.Point(457, 330);
             this.loginLink.Name = "loginLink";
-            this.loginLink.Size = new System.Drawing.Size(191, 20);
+            this.loginLink.Size = new System.Drawing.Size(170, 20);
             this.loginLink.TabIndex = 7;
             this.loginLink.Text = "Already have account?";
             this.loginLink.Click += new System.EventHandler(this.loginLink_Click);
@@ -284,6 +284,7 @@
             this.Controls.Add(this.titleLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "SignupForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Signup";
             this.Load += new System.EventHandler(this.SignupForm_Load);
             this.ResumeLayout(false);

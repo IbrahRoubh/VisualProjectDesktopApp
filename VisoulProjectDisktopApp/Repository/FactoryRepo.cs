@@ -13,11 +13,11 @@ namespace VisoulProjectDisktopApp
     internal class FactoryRepo
     {
         SqlConnection conn = new SqlConnection("Data Source=DESKTOP-NEQA9MK;Initial Catalog=VisoulProjectDB;Persist Security Info=True;User ID=ibrahim;Password=123");
-        public Boolean isUser(String username,String password,CookieManager cookieManager)
+        public Boolean isUser(String email,String password,CookieManager cookieManager)
         {
             try
             {
-                String query = "SELECT password from Factory where name = '" + username + "'";
+                String query = "SELECT password from Factory where email = '" + email + "'";
                 SqlCommand command = new SqlCommand(query, conn);
                 conn.Open();
                 var excutedResult = command.ExecuteScalar();
@@ -26,7 +26,7 @@ namespace VisoulProjectDisktopApp
                     string DBpassword = excutedResult.ToString();
                     if (password == DBpassword)
                     {
-                        cookieManager.setCooike(username);
+                        cookieManager.setCooike(email);
                         return true;
                     }
                     else
@@ -64,7 +64,7 @@ namespace VisoulProjectDisktopApp
                     factrory.password = (String)reader["password"];
                     factrory.location = (String)reader["location"];
                     factrory.phoneNum = (String)reader["phone"];
-                    factrory.type = (String)reader["type"];
+                    factrory.email = (String)reader["email"];
                 }
             }
             catch 

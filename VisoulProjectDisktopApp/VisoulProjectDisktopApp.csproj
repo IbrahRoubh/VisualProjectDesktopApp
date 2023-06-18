@@ -53,24 +53,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="CookieManager.cs" />
+    <Compile Include="Form\customerForm\MainCustomerForm.cs" />
+    <Compile Include="Form\customerForm\MainCustomerForm.Designer.cs">
+      <DependentUpon>MainCustomerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FactoryForm\FactorySettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FactoryForm\FactorySettings.Designer.cs">
+      <DependentUpon>FactorySettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="model\CustomerModel.cs" />
     <Compile Include="model\ProductModel.cs" />
     <Compile Include="model\StoreModel.cs" />
     <Compile Include="model\SuppliesModel.cs" />
     <Compile Include="Repository\CustomerRepo.cs" />
     <Compile Include="Repository\FactoryRepo.cs" />
-    <Compile Include="LoginForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LoginForm.Designer.cs">
+    <Compile Include="Form\LoginForm.cs" />
+    <Compile Include="Form\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Form\FactoryForm\MainForm.cs" />
+    <Compile Include="Form\FactoryForm\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="model\FactroryModel.cs" />
@@ -79,17 +84,17 @@
     <Compile Include="Repository\ProductRepo.cs" />
     <Compile Include="Repository\StoreRepo.cs" />
     <Compile Include="Repository\SuppliesRepo.cs" />
-    <Compile Include="SignupForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SignupForm.Designer.cs">
+    <Compile Include="Form\customerForm\SignupForm.cs" />
+    <Compile Include="Form\customerForm\SignupForm.Designer.cs">
       <DependentUpon>SignupForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TestMethodAttribute.cs" />
-    <EmbeddedResource Include="LoginForm.resx">
+    <EmbeddedResource Include="Form\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Form\customerForm\MainCustomerForm.resx">
+      <DependentUpon>MainCustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FactoryForm\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -102,7 +107,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SignupForm.resx">
+    <EmbeddedResource Include="Form\customerForm\SignupForm.resx">
       <DependentUpon>SignupForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
