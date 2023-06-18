@@ -6,7 +6,6 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
@@ -28,6 +27,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+
+
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.storeBox = new System.Windows.Forms.GroupBox();
@@ -139,7 +140,7 @@
             this.userInfoBox.TabIndex = 2;
             this.userInfoBox.TabStop = false;
             this.userInfoBox.Text = "User Info";
-            this.userInfoBox.Click += new System.EventHandler(this.settingBox_onClick);
+            this.userInfoBox.Click += new System.EventHandler(this.toSetting);
             // 
             // usernameLabel
             // 
@@ -149,7 +150,7 @@
             this.usernameLabel.Name = "usernameLabel";
             this.usernameLabel.Size = new System.Drawing.Size(0, 20);
             this.usernameLabel.TabIndex = 0;
-            this.usernameLabel.Click += new System.EventHandler(this.settingBox_onClick);
+            this.usernameLabel.Click += new System.EventHandler(this.toSetting);
             // 
             // requestBox
             // 
@@ -233,7 +234,7 @@
             this.seetingBox.Size = new System.Drawing.Size(256, 50);
             this.seetingBox.TabIndex = 6;
             this.seetingBox.TabStop = false;
-            this.seetingBox.Click += new System.EventHandler(this.settingBox_onClick);
+            this.seetingBox.Click += new System.EventHandler(this.toSetting);
             // 
             // settingBox
             // 
@@ -245,7 +246,7 @@
             this.settingBox.Size = new System.Drawing.Size(73, 25);
             this.settingBox.TabIndex = 0;
             this.settingBox.Text = "Setting";
-            this.settingBox.Click += new System.EventHandler(this.settingBox_onClick);
+            this.settingBox.Click += new System.EventHandler(this.toSetting);
             // 
             // trackOrdersBox
             // 

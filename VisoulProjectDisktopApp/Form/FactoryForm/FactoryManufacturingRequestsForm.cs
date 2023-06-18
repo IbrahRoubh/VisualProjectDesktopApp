@@ -11,10 +11,10 @@ using VisoulProjectDisktopApp.model;
 
 namespace VisoulProjectDisktopApp
 {
-    public partial class FactorySettingsForm : Form
+    public partial class FactoryManufacturingRequestsForm : Form
     {
         private FactoryModel factory;
-        public FactorySettingsForm(FactoryModel factory)
+        public FactoryManufacturingRequestsForm(FactoryModel factory)
         {
             this.factory = factory;
             InitializeComponent();
@@ -36,26 +36,12 @@ namespace VisoulProjectDisktopApp
             this.Dispose();
         }
 
-        public void toManufacturingRequests(Object sender, EventArgs e)
+        public void toSetting(Object sender, EventArgs e)
         {
-            FactoryManufacturingRequestsForm requestsForm = new FactoryManufacturingRequestsForm(factory);
+            FactorySettingsForm settingsForm = new FactorySettingsForm(factory);
             this.Hide();
-            requestsForm.ShowDialog();
+            settingsForm.ShowDialog();
             this.Dispose();
-        }
-
-        private void FactorySettingsForm_Load(object sender, EventArgs e)
-        {
-            nameLabel.Text = factory.name;
-            emailTxt.Text = factory.email;
-            nameTxt.Text = factory.name;
-            locationTxt.Text = factory.location;
-            phoneTxt.Text = factory.phoneNum;
-        }
-
-        private void updateBtn_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

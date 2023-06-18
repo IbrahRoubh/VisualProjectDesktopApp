@@ -54,15 +54,35 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CookieManager.cs" />
-    <Compile Include="Form\customerForm\MainCustomerForm.cs" />
-    <Compile Include="Form\customerForm\MainCustomerForm.Designer.cs">
-      <DependentUpon>MainCustomerForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form\FactoryForm\FactorySettings.cs">
+    <Compile Include="Form\FactoryForm\FactoryAddProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\FactoryForm\FactorySettings.Designer.cs">
-      <DependentUpon>FactorySettings.cs</DependentUpon>
+    <Compile Include="Form\FactoryForm\FactoryAddProductForm.Designer.cs">
+      <DependentUpon>FactoryAddProductForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FactoryForm\FactoryHomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FactoryForm\FactoryHomeForm.Designer.cs">
+      <DependentUpon>FactoryHomeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FactoryForm\FactoryManufacturingRequestsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FactoryForm\FactoryManufacturingRequestsForm.Designer.cs">
+      <DependentUpon>FactoryManufacturingRequestsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FactoryForm\FactorySettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FactoryForm\FactorySettingsForm.Designer.cs">
+      <DependentUpon>FactorySettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\customerForm\MainCustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\customerForm\MainCustomerForm.Designer.cs">
+      <DependentUpon>MainCustomerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="model\CustomerModel.cs" />
     <Compile Include="model\ProductModel.cs" />
@@ -70,24 +90,42 @@
     <Compile Include="model\SuppliesModel.cs" />
     <Compile Include="Repository\CustomerRepo.cs" />
     <Compile Include="Repository\FactoryRepo.cs" />
-    <Compile Include="Form\LoginForm.cs" />
+    <Compile Include="Form\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\FactoryForm\MainForm.cs" />
+    <Compile Include="Form\FactoryForm\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form\FactoryForm\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="model\FactroryModel.cs" />
+    <Compile Include="model\FactoryModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ProductRepo.cs" />
     <Compile Include="Repository\StoreRepo.cs" />
     <Compile Include="Repository\SuppliesRepo.cs" />
-    <Compile Include="Form\customerForm\SignupForm.cs" />
+    <Compile Include="Form\customerForm\SignupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form\customerForm\SignupForm.Designer.cs">
       <DependentUpon>SignupForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Form\FactoryForm\FactoryAddProductForm.resx">
+      <DependentUpon>FactoryAddProductForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FactoryForm\FactoryHomeForm.resx">
+      <DependentUpon>FactoryHomeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FactoryForm\FactoryManufacturingRequestsForm.resx">
+      <DependentUpon>FactoryManufacturingRequestsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FactoryForm\FactorySettingsForm.resx">
+      <DependentUpon>FactorySettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VisoulProjectDisktopApp.model;
 using VisoulProjectDisktopApp.Repository;
 
 namespace VisoulProjectDisktopApp
@@ -41,11 +42,12 @@ namespace VisoulProjectDisktopApp
 
                 }else if ((String)roleComboBox.SelectedItem == "Factory")
                 {
-                    if (factoryRepo.isUser(emailTxt.Text, passwordTxt.Text, cookieManager))
+                    FactoryModel factory = factoryRepo.getUser(emailTxt.Text, passwordTxt.Text);
+                    if (factory!=null)
                     {
-                        MainForm mainForm = new MainForm(cookieManager);
+                        FactoryHomeForm homeForm = new FactoryHomeForm(factory);
                         this.Hide();
-                        mainForm.ShowDialog();
+                        homeForm.ShowDialog();
                         this.Dispose();
                     }
                 }

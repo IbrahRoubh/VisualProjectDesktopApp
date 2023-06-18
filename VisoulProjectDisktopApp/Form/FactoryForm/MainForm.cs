@@ -20,7 +20,7 @@ namespace VisoulProjectDisktopApp
 {
     public partial class MainForm : Form
     {
-        private FactroryModel factrory = new FactroryModel();
+        private FactoryModel factrory = new FactoryModel();
 
         private FactoryRepo factoryRepo = new FactoryRepo();
         private ProductRepo productRepo = new ProductRepo();
@@ -34,6 +34,7 @@ namespace VisoulProjectDisktopApp
             this.cookieManager = cookieManager;
             InitializeComponent();
         }
+       
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -344,66 +345,8 @@ namespace VisoulProjectDisktopApp
         TextBox SlocationTextbox;
         TextBox SphoneNumTextbox;
         TextBox SpasswordTextbox;
-        private void settingBox_onClick(object sender, EventArgs e)
+        private void toSetting(object sender, EventArgs e)
         {
-            factoryRepo.loadFactory(factrory, factrory.name);
-            TableLayoutPanel tableLayout = new TableLayoutPanel();
-            tableLayout.Dock = DockStyle.Fill;
-            tableLayout.RowCount = 5;
-            tableLayout.ColumnCount = 3;
-            tableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33F));
-            tableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33F));
-            tableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33F));
-
-            Label SIdLabel = new Label();
-            SIdLabel.Text = "ID:";
-            tableLayout.Controls.Add(SIdLabel, 0, 0);
-
-            TextBox SIdTextbox = new TextBox();
-            SIdTextbox.Text = factrory.id.ToString();
-            SIdTextbox.ReadOnly = true;
-            tableLayout.Controls.Add(SIdTextbox, 1, 0);
-
-
-            Label SusernameLabel = new Label();
-            SusernameLabel.Text = "Username:";
-            tableLayout.Controls.Add(SusernameLabel, 0, 1);
-
-            SusernameTextbox = new TextBox();
-            SusernameTextbox.Text = factrory.name;
-            SusernameTextbox.ReadOnly = true;
-            tableLayout.Controls.Add(SusernameTextbox, 1, 1);
-
-            Label SlocationLabel = new Label();
-            SlocationLabel.Text = "Location:";
-            tableLayout.Controls.Add(SlocationLabel, 0, 2);
-
-            SlocationTextbox = new TextBox();
-            SlocationTextbox.Text = factrory.location;
-            tableLayout.Controls.Add(SlocationTextbox, 1, 2);
-
-            Label SphoneNumLabel = new Label();
-            SphoneNumLabel.Text = "Phone Number:";
-            tableLayout.Controls.Add(SphoneNumLabel, 0, 3);
-
-            SphoneNumTextbox = new TextBox();
-            SphoneNumTextbox.Text = factrory.phoneNum;
-            tableLayout.Controls.Add(SphoneNumTextbox, 1, 3);
-
-            Label SpasswordLabel = new Label();
-            SpasswordLabel.Text = "Password:";
-            tableLayout.Controls.Add(SpasswordLabel, 0, 4);
-
-            SpasswordTextbox = new TextBox();
-            SpasswordTextbox.Text = factrory.password;
-            tableLayout.Controls.Add(SpasswordTextbox, 1, 4);
-
-            Button updateButton = new Button();
-            updateButton.Text = "Update";
-            updateButton.Click += new EventHandler(onUpdateUserClick);
-            tableLayout.Controls.Add(updateButton, 2, 4);
-            mainPanel.Controls.Clear();
-            mainPanel.Controls.Add(tableLayout);
         }
 
         public void onUpdateUserClick(object sender,EventArgs e)

@@ -65,14 +65,14 @@
             this.passwordTxt.Name = "passwordTxt";
             this.passwordTxt.PasswordChar = '*';
             this.passwordTxt.Size = new System.Drawing.Size(213, 20);
-            this.passwordTxt.TabIndex = 2;
+            this.passwordTxt.TabIndex = 1;
             // 
             // emailTxt
             // 
             this.emailTxt.Location = new System.Drawing.Point(299, 29);
             this.emailTxt.Name = "emailTxt";
             this.emailTxt.Size = new System.Drawing.Size(213, 20);
-            this.emailTxt.TabIndex = 1;
+            this.emailTxt.TabIndex = 0;
             // 
             // submitBtn
             // 
@@ -115,7 +115,7 @@
             this.signupLink.Location = new System.Drawing.Point(347, 298);
             this.signupLink.Name = "signupLink";
             this.signupLink.Size = new System.Drawing.Size(165, 20);
-            this.signupLink.TabIndex = 7;
+            this.signupLink.TabIndex = 4;
             this.signupLink.Text = "Do not have account?";
             this.signupLink.Click += new System.EventHandler(this.signupLink_Click);
             // 
@@ -140,7 +140,7 @@
             this.roleComboBox.Location = new System.Drawing.Point(299, 138);
             this.roleComboBox.Name = "roleComboBox";
             this.roleComboBox.Size = new System.Drawing.Size(213, 26);
-            this.roleComboBox.TabIndex = 9;
+            this.roleComboBox.TabIndex = 2;
             // 
             // LoginForm
             // 

@@ -76,15 +76,24 @@ namespace VisoulProjectDisktopApp.Repository
         {
             try
             {
-                String query = "INSERT INTO Product(name,description,code,FID) VALUES('" + name + "','" + description + "','" + code + "','"+FID+"')";
-                SqlCommand command = new SqlCommand(query,conn);
+                // add the product
+                String query = "INSERT INTO Product(name,description,code,FID) VALUES('" + name + "','" + description + "','" + code + "','" + FID + "')";
+                SqlCommand command = new SqlCommand(query, conn);
                 conn.Open();
                 command.ExecuteNonQuery();
-
+            }
+            catch
+            {
+                MessageBox.Show("You should change the name!! "+ FID);
+                return ;
+            }
+            try { 
+                // have the new product id
                 String query2 = "SELECT ID FROM Product WHERE name = '"+name+"'";
-                command = new SqlCommand(query2,conn);
+                SqlCommand command = new SqlCommand(query2,conn);
                 int PID = (int)command.ExecuteScalar();
                 
+                // set the amount 
                 String query3 = "INSERT INTO report(amount,FID,PID) VALUES('" + amount + "','" + FID + "','"+PID+"')";
                 command = new SqlCommand(query3,conn);
                 command.ExecuteNonQuery();

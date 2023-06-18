@@ -13,43 +13,52 @@ namespace VisoulProjectDisktopApp
     internal class FactoryRepo
     {
         SqlConnection conn = new SqlConnection("Data Source=DESKTOP-NEQA9MK;Initial Catalog=VisoulProjectDB;Persist Security Info=True;User ID=ibrahim;Password=123");
-        public Boolean isUser(String email,String password,CookieManager cookieManager)
+        public FactoryModel getUser(String email,String password)
         {
             try
             {
-                String query = "SELECT password from Factory where email = '" + email + "'";
+                String query = "SELECT * from Factory where email = '" + email + "';";
                 SqlCommand command = new SqlCommand(query, conn);
                 conn.Open();
-                var excutedResult = command.ExecuteScalar();
-                if (excutedResult != null)
+                SqlDataReader reader = command.ExecuteReader();
+                FactoryModel factory = new FactoryModel();
+                while (reader.Read())
                 {
-                    string DBpassword = excutedResult.ToString();
+                    factory.id = (int)reader["ID"];
+                    factory.name = (String)reader["name"];
+                    factory.password = (String)reader["password"];
+                    factory.location = (String)reader["location"];
+                    factory.phoneNum = (String)reader["phone"];
+                    factory.email = (String)reader["email"];
+                }
+                if (reader != null)
+                {
+                    string DBpassword = factory.password;
                     if (password == DBpassword)
                     {
-                        cookieManager.setCooike(email);
-                        return true;
+                        return factory;
                     }
                     else
                     {
-                        return false;
+                        return null;
                     }
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch {
                 
-                return false;
+                return null;
             }
             finally
             {
                 conn.Close();
             }
-        }
+        }   
 
-        public void loadFactory(FactroryModel factrory,String username)
+        public void loadFactory(FactoryModel factrory,String username)
         {
             try
             {

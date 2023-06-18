@@ -11,21 +11,14 @@ using VisoulProjectDisktopApp.model;
 
 namespace VisoulProjectDisktopApp
 {
-    public partial class FactorySettingsForm : Form
+    public partial class FactoryHomeForm : Form
     {
         private FactoryModel factory;
-        public FactorySettingsForm(FactoryModel factory)
+
+        public FactoryHomeForm(FactoryModel factory)
         {
             this.factory = factory;
             InitializeComponent();
-        }
-
-        public void toHome(Object sender, EventArgs e)
-        {
-            FactoryHomeForm homeForm = new FactoryHomeForm(factory);
-            this.Hide();
-            homeForm.ShowDialog();
-            this.Dispose();
         }
 
         public void toAddProduct(Object sender, EventArgs e)
@@ -44,18 +37,12 @@ namespace VisoulProjectDisktopApp
             this.Dispose();
         }
 
-        private void FactorySettingsForm_Load(object sender, EventArgs e)
+        public void toSetting(Object sender, EventArgs e)
         {
-            nameLabel.Text = factory.name;
-            emailTxt.Text = factory.email;
-            nameTxt.Text = factory.name;
-            locationTxt.Text = factory.location;
-            phoneTxt.Text = factory.phoneNum;
-        }
-
-        private void updateBtn_Click(object sender, EventArgs e)
-        {
-
+            FactorySettingsForm settingsForm= new FactorySettingsForm(factory);
+            this.Hide();
+            settingsForm.ShowDialog();
+            this.Dispose();
         }
     }
 }
