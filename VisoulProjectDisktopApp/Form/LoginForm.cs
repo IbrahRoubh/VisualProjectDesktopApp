@@ -32,9 +32,10 @@ namespace VisoulProjectDisktopApp
             if(emailTxt.Text != null && emailTxt.Text.Trim().Length  > 0 && passwordTxt.Text != null && passwordTxt.Text.Trim().Length > 0)
             {
                 if ((String)roleComboBox.SelectedItem=="Customer") 
-                { 
-                    if(customerRepo.isUser(emailTxt.Text, passwordTxt.Text,cookieManager)){
-                        MainCustomerForm mainCustomerForm = new MainCustomerForm();
+                {
+                    CustomerModel customer = customerRepo.isUser(emailTxt.Text, passwordTxt.Text);
+                    if(customer!=null){
+                        CustomerHome mainCustomerForm = new CustomerHome(customer.Id);
                         this.Hide();
                         mainCustomerForm.ShowDialog();
                         this.Dispose();

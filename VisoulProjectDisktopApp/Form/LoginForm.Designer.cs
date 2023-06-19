@@ -93,9 +93,9 @@
             this.errorMsg.ForeColor = System.Drawing.Color.Red;
             this.errorMsg.Location = new System.Drawing.Point(307, 103);
             this.errorMsg.Name = "errorMsg";
-            this.errorMsg.Size = new System.Drawing.Size(205, 18);
+            this.errorMsg.Size = new System.Drawing.Size(202, 18);
             this.errorMsg.TabIndex = 6;
-            this.errorMsg.Text = "Name or password are wrong";
+            this.errorMsg.Text = "Email or password are wrong";
             this.errorMsg.Visible = false;
             // 
             // pictureBox1

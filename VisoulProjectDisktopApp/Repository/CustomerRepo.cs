@@ -13,36 +13,77 @@ namespace VisoulProjectDisktopApp.Repository
     {
         SqlConnection conn = new SqlConnection("Data Source=DESKTOP-NEQA9MK;Initial Catalog=VisoulProjectDB;Persist Security Info=True;User ID=ibrahim;Password=123");
 
-        public Boolean isUser(String email, String password, CookieManager cookieManager)
+        public CustomerModel getCustomerById(int id) 
         {
             try
             {
-                String query = "SELECT password from Customer where email = '" + email + "'";
+                string query = "SELECT * FROM Customer WHERE id='"+id+"'";
                 SqlCommand command = new SqlCommand(query, conn);
                 conn.Open();
-                var excutedResult = command.ExecuteScalar();
-                if (excutedResult != null)
+                SqlDataReader reader = command.ExecuteReader();
+                CustomerModel customer = new CustomerModel();
+                
+                if(reader.Read())
                 {
-                    string DBpassword = excutedResult.ToString();
-                    if (password == DBpassword)
+                    customer.Id = (int)reader["id"];
+                    customer.Name = (string)reader["name"];
+                    customer.Email = (string)reader["email"];
+                    customer.Phone = (string)reader["phone"];
+                    customer.Location = (string)reader["location"];
+                    customer.Password = (string)reader["password"];
+                }
+
+                return customer;
+            }catch 
+            {
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        
+        
+        }
+
+        public CustomerModel isUser(String email, String password)
+        {
+            try
+            {
+                String query = "SELECT * from Customer where email = '" + email + "'";
+                SqlCommand command = new SqlCommand(query, conn);
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    CustomerModel customer = new CustomerModel();
+
+                    customer.Id = (int)reader["id"];
+                    customer.Name = (string)reader["name"];
+                    customer.Email = (string)reader["email"];
+                    customer.Phone = (string)reader["phone"];
+                    customer.Location = (string)reader["location"];
+                    customer.Password = (string)reader["password"];
+
+                    if (password == customer.Password)
                     {
-                        cookieManager.setCooike(email);
-                        return true;
+                        return customer;
                     }
                     else
                     {
-                        return false;
+                        return null;
                     }
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
             }
             catch(Exception ex)
             {
                 MessageBox.Show("error "+ex);
-                return false;
+                return null;
             }
             finally
             {
@@ -100,5 +141,24 @@ namespace VisoulProjectDisktopApp.Repository
             }
         }
 
+        public void updateCustomer(int ID, String name, String location, String phone, String password)
+        {
+            try
+            {
+                String query = "UPDATE Customer SET name = '" + name + "',location = '" + location + "', phone = '" + phone + "', password = '" + password + "' WHERE ID= '" + ID + "'";
+                conn.Open();
+                SqlCommand command = new SqlCommand(query, conn);
+                command.ExecuteNonQuery();
+                MessageBox.Show("Update completed successfully");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("error " + ex);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
     }
 }

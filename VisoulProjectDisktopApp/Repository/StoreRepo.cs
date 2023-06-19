@@ -13,6 +13,33 @@ namespace VisoulProjectDisktopApp.Repository
     {
         SqlConnection conn = new SqlConnection("Data Source=DESKTOP-NEQA9MK;Initial Catalog=VisoulProjectDB;Persist Security Info=True;User ID=ibrahim;Password=123");
 
+        public StoreModel getStoreById(int SID)
+        {
+            try
+            {
+                string query = "SELECT * FROM Store  WHERE ID= '"+SID+"'";
+                SqlCommand command = new SqlCommand(query, conn);
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                StoreModel store = new StoreModel();
+
+                if(reader.Read())
+                {
+                    store.ID = (int)reader["ID"];
+                    store.name = (string)reader["name"];
+                    store.location = (string)reader["location"];
+                    store.phone = (string)reader["phone"];
+                }
+
+                return store;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("error " + ex);
+                return null;
+            }finally {conn.Close(); } 
+        }
+
         public List<StoreModel> getStores()
         {
             try

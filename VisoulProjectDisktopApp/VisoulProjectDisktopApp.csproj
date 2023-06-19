@@ -54,6 +54,30 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CookieManager.cs" />
+    <Compile Include="Form\customerForm\CustomerMyOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\customerForm\CustomerMyOrder.Designer.cs">
+      <DependentUpon>CustomerMyOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\customerForm\CustomerPreviosOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\customerForm\CustomerPreviosOrder.Designer.cs">
+      <DependentUpon>CustomerPreviosOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\customerForm\CustomerWarehouse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\customerForm\CustomerWarehouse.Designer.cs">
+      <DependentUpon>CustomerWarehouse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\customerForm\CustomerSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\customerForm\CustomerSetting.Designer.cs">
+      <DependentUpon>CustomerSetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\FactoryForm\FactoryAddProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,11 +102,11 @@
     <Compile Include="Form\FactoryForm\FactorySettingsForm.Designer.cs">
       <DependentUpon>FactorySettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\customerForm\MainCustomerForm.cs">
+    <Compile Include="Form\customerForm\CustomerHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\customerForm\MainCustomerForm.Designer.cs">
-      <DependentUpon>MainCustomerForm.cs</DependentUpon>
+    <Compile Include="Form\customerForm\CustomerHome.Designer.cs">
+      <DependentUpon>CustomerHome.cs</DependentUpon>
     </Compile>
     <Compile Include="model\CustomerModel.cs" />
     <Compile Include="model\ProductModel.cs" />
@@ -96,12 +120,6 @@
     <Compile Include="Form\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\FactoryForm\MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form\FactoryForm\MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="model\FactoryModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -114,6 +132,12 @@
     <Compile Include="Form\customerForm\SignupForm.Designer.cs">
       <DependentUpon>SignupForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Form\customerForm\CustomerSetting.resx">
+      <DependentUpon>CustomerSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\customerForm\CustomerWarehouse.resx">
+      <DependentUpon>CustomerWarehouse.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\FactoryForm\FactoryAddProductForm.resx">
       <DependentUpon>FactoryAddProductForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,11 +153,8 @@
     <EmbeddedResource Include="Form\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\customerForm\MainCustomerForm.resx">
-      <DependentUpon>MainCustomerForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form\FactoryForm\MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <EmbeddedResource Include="Form\customerForm\CustomerHome.resx">
+      <DependentUpon>CustomerHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

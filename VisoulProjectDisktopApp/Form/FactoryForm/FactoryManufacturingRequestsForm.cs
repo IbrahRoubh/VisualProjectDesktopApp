@@ -8,13 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VisoulProjectDisktopApp.model;
+using VisoulProjectDisktopApp.Repository;
 
 namespace VisoulProjectDisktopApp
 {
     public partial class FactoryManufacturingRequestsForm : Form
     {
         private FactoryModel factory;
+        
         private FactoryRepo factoryRepo = new FactoryRepo();
+        private StoreRepo storeRepo = new StoreRepo();
+        private ProductRepo productRepo = new ProductRepo();
+        private SuppliesRepo suppliesRepo = new SuppliesRepo();
+
         public FactoryManufacturingRequestsForm(int id)
         {
             this.factory = factoryRepo.getFactoryById(id);
@@ -53,8 +59,38 @@ namespace VisoulProjectDisktopApp
 
         private void loadManfacturingRequest()
         {
-            //manfacturRequesDataGrid
+            manfacturRequesDataGrid.Rows.Clear();
+            manfacturRequesDataGrid.CellContentClick += new DataGridViewCellEventHandler(onDoneShippedClick);
 
+            List <SuppliesModel> supplies = factoryRepo.getRequest(factory.id);
+
+            foreach(SuppliesModel supply in supplies)
+            {
+                StoreModel store = storeRepo.getStoreById(supply.SID);
+                ProductModel product = productRepo.getProduct(supply.PID);
+                manfacturRequesDataGrid.Rows.Add(supply.id,store.name, store.location, product.name, product.code, supply.amount);
+            }
         }
+
+        private void onDoneShippedClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = (int)manfacturRequesDataGrid.Rows[e.RowIndex].Cells["supplieId"].Value;
+
+            DialogResult result = MessageBox.Show("Do you want to report request which have id=" + id + " as shipped?", "Confirmation", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                if (suppliesRepo.requestSend(id))
+                {
+                    MessageBox.Show("State change, thank you");
+                    loadManfacturingRequest();
+                }
+                else
+                {
+                    MessageBox.Show("For some resoun we could not change the state!!!");
+                }
+            }
+        }
+
     }
 }

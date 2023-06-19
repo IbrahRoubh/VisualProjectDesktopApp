@@ -1,6 +1,6 @@
 ﻿namespace VisoulProjectDisktopApp
 {
-    partial class MainCustomerForm
+    partial class CustomerHome
     {
         /// <summary>
         /// Required designer variable.
@@ -50,16 +50,16 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.70443F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.29557F));
             this.tableLayoutPanel1.Controls.Add(this.customerNameLabel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.homePanel, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.orderPanel, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.prevOrderPanel, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.warehousePanel, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.settingsPanel, 0, 5);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
@@ -69,7 +69,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(146, 450);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // customerNameLabel
@@ -77,21 +77,22 @@
             this.customerNameLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.customerNameLabel.AutoSize = true;
             this.customerNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customerNameLabel.Location = new System.Drawing.Point(49, 29);
+            this.customerNameLabel.Location = new System.Drawing.Point(50, 29);
             this.customerNameLabel.Name = "customerNameLabel";
-            this.customerNameLabel.Size = new System.Drawing.Size(58, 16);
+            this.customerNameLabel.Size = new System.Drawing.Size(45, 16);
             this.customerNameLabel.TabIndex = 0;
-            this.customerNameLabel.Text = "ibrahim";
+            this.customerNameLabel.Text = "name";
             // 
             // homePanel
             // 
-            this.homePanel.BackColor = System.Drawing.Color.Silver;
+            this.homePanel.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.homePanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.homePanel.Controls.Add(this.homeLabel);
             this.homePanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.homePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.homePanel.Location = new System.Drawing.Point(3, 78);
             this.homePanel.Name = "homePanel";
-            this.homePanel.Size = new System.Drawing.Size(151, 69);
+            this.homePanel.Size = new System.Drawing.Size(140, 69);
             this.homePanel.TabIndex = 1;
             // 
             // homeLabel
@@ -100,7 +101,7 @@
             this.homeLabel.AutoSize = true;
             this.homeLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.homeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.homeLabel.Location = new System.Drawing.Point(46, 27);
+            this.homeLabel.Location = new System.Drawing.Point(39, 25);
             this.homeLabel.Name = "homeLabel";
             this.homeLabel.Size = new System.Drawing.Size(45, 16);
             this.homeLabel.TabIndex = 0;
@@ -109,13 +110,14 @@
             // 
             // orderPanel
             // 
-            this.orderPanel.BackColor = System.Drawing.Color.Silver;
+            this.orderPanel.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.orderPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.orderPanel.Controls.Add(this.orderLabel);
             this.orderPanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.orderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.orderPanel.Location = new System.Drawing.Point(3, 153);
             this.orderPanel.Name = "orderPanel";
-            this.orderPanel.Size = new System.Drawing.Size(151, 69);
+            this.orderPanel.Size = new System.Drawing.Size(140, 69);
             this.orderPanel.TabIndex = 2;
             this.orderPanel.Click += new System.EventHandler(this.toOrder);
             // 
@@ -125,9 +127,9 @@
             this.orderLabel.AutoSize = true;
             this.orderLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.orderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orderLabel.Location = new System.Drawing.Point(29, 25);
+            this.orderLabel.Location = new System.Drawing.Point(22, 23);
             this.orderLabel.Name = "orderLabel";
-            this.orderLabel.Size = new System.Drawing.Size(78, 16);
+            this.orderLabel.Size = new System.Drawing.Size(77, 16);
             this.orderLabel.TabIndex = 0;
             this.orderLabel.Text = "my oreder";
             this.orderLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -135,13 +137,14 @@
             // 
             // prevOrderPanel
             // 
-            this.prevOrderPanel.BackColor = System.Drawing.Color.Silver;
+            this.prevOrderPanel.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.prevOrderPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.prevOrderPanel.Controls.Add(this.prevOrderLabel);
             this.prevOrderPanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.prevOrderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.prevOrderPanel.Location = new System.Drawing.Point(3, 228);
             this.prevOrderPanel.Name = "prevOrderPanel";
-            this.prevOrderPanel.Size = new System.Drawing.Size(151, 69);
+            this.prevOrderPanel.Size = new System.Drawing.Size(140, 69);
             this.prevOrderPanel.TabIndex = 3;
             this.prevOrderPanel.Click += new System.EventHandler(this.toPrevOrder);
             // 
@@ -151,9 +154,9 @@
             this.prevOrderLabel.AutoSize = true;
             this.prevOrderLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.prevOrderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prevOrderLabel.Location = new System.Drawing.Point(20, 29);
+            this.prevOrderLabel.Location = new System.Drawing.Point(13, 27);
             this.prevOrderLabel.Name = "prevOrderLabel";
-            this.prevOrderLabel.Size = new System.Drawing.Size(117, 16);
+            this.prevOrderLabel.Size = new System.Drawing.Size(116, 16);
             this.prevOrderLabel.TabIndex = 0;
             this.prevOrderLabel.Text = "previous orders";
             this.prevOrderLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -161,13 +164,14 @@
             // 
             // warehousePanel
             // 
-            this.warehousePanel.BackColor = System.Drawing.Color.Silver;
+            this.warehousePanel.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.warehousePanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.warehousePanel.Controls.Add(this.warehouseLabel);
             this.warehousePanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.warehousePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.warehousePanel.Location = new System.Drawing.Point(3, 303);
             this.warehousePanel.Name = "warehousePanel";
-            this.warehousePanel.Size = new System.Drawing.Size(151, 69);
+            this.warehousePanel.Size = new System.Drawing.Size(140, 69);
             this.warehousePanel.TabIndex = 4;
             this.warehousePanel.Click += new System.EventHandler(this.toWarehouse);
             // 
@@ -177,7 +181,7 @@
             this.warehouseLabel.AutoSize = true;
             this.warehouseLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.warehouseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.warehouseLabel.Location = new System.Drawing.Point(25, 26);
+            this.warehouseLabel.Location = new System.Drawing.Point(18, 24);
             this.warehouseLabel.Name = "warehouseLabel";
             this.warehouseLabel.Size = new System.Drawing.Size(82, 16);
             this.warehouseLabel.TabIndex = 0;
@@ -187,13 +191,14 @@
             // 
             // settingsPanel
             // 
-            this.settingsPanel.BackColor = System.Drawing.Color.Silver;
+            this.settingsPanel.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.settingsPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.settingsPanel.Controls.Add(this.settingsLabel);
             this.settingsPanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.settingsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.settingsPanel.Location = new System.Drawing.Point(3, 378);
             this.settingsPanel.Name = "settingsPanel";
-            this.settingsPanel.Size = new System.Drawing.Size(151, 69);
+            this.settingsPanel.Size = new System.Drawing.Size(140, 69);
             this.settingsPanel.TabIndex = 5;
             this.settingsPanel.Click += new System.EventHandler(this.toSetting);
             // 
@@ -203,7 +208,7 @@
             this.settingsLabel.AutoSize = true;
             this.settingsLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.settingsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.settingsLabel.Location = new System.Drawing.Point(25, 39);
+            this.settingsLabel.Location = new System.Drawing.Point(18, 37);
             this.settingsLabel.Name = "settingsLabel";
             this.settingsLabel.Size = new System.Drawing.Size(61, 16);
             this.settingsLabel.TabIndex = 0;

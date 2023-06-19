@@ -54,7 +54,7 @@ namespace VisoulProjectDisktopApp
                 conn.Open();
                 SqlDataReader reader = command.ExecuteReader();
                 FactoryModel factory = new FactoryModel();
-                while (reader.Read())
+                if (reader.Read())
                 {
                     factory.id = (int)reader["ID"];
                     factory.name = (String)reader["name"];
@@ -90,34 +90,6 @@ namespace VisoulProjectDisktopApp
             }
         }   
 
-        public void loadFactory(FactoryModel factrory,String username)
-        {
-            try
-            {
-                String query = "SELECT * FROM Factory WHERE name='" + username + "'";
-                SqlCommand command = new SqlCommand(query, conn);
-                conn.Open();
-                SqlDataReader reader= command.ExecuteReader();
-                while (reader.Read())
-                {
-                    factrory.id = (int)reader["ID"];
-                    factrory.name = (String)reader["name"];
-                    factrory.password = (String)reader["password"];
-                    factrory.location = (String)reader["location"];
-                    factrory.phoneNum = (String)reader["phone"];
-                    factrory.email = (String)reader["email"];
-                }
-            }
-            catch 
-            {
-                Application.Exit();
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
-
         public void updateFactory(int ID,String name,String location,String phone, String password)
         {
             try
@@ -135,52 +107,14 @@ namespace VisoulProjectDisktopApp
             finally
             {
                 conn.Close();
-            }
-            
+            }           
         }
-
-        public List<SuppliesModel> getOrders(int FID)
-        {
-            try
-            {
-                String query = "SELECT * FROM supplies WHERE FID ='"+ FID +"' AND Direction ='f' AND Status !='d'; ";
-                SqlCommand command = new SqlCommand(query,conn);
-                conn.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                List<SuppliesModel> supplies = new List<SuppliesModel>();
-
-                while (reader.Read())
-                {
-                    SuppliesModel supplie = new SuppliesModel();
-                    supplie.id = (int)reader["ID"];
-                    supplie.FID = (int)reader["FID"];
-                    supplie.SID = (int)reader["SID"];
-                    supplie.PID = (int)reader["PID"];
-                    supplie.amount = (int)reader["amount"];
-                    supplie.date_of_arrival = (DateTime)reader["date_of_arrival"];
-                    supplie.Direction = ((String)reader["Direction"]).Trim();
-                    supplie.status = ((String)reader["Status"]).Trim();
-
-                    supplies.Add(supplie);
-                }
-                return supplies;
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("error "+ ex);
-                return null;
-            }
-            finally
-            {
-                conn.Close();
-            }
-        } 
 
         public List<SuppliesModel> getRequest(int FID)
         {
             try
             {
-                String query = "SELECT * FROM supplies WHERE FID ='"+FID+"' AND Direction ='s' AND Status ='o'";
+                String query = "SELECT * FROM supplies WHERE FID ='"+FID+ "' AND Direction ='factory' AND Status ='ordered'";
                 SqlCommand command = new SqlCommand(query, conn);
                 conn.Open();
                 SqlDataReader reader = command.ExecuteReader();

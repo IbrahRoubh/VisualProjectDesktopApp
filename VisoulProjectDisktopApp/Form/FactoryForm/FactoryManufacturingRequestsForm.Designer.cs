@@ -40,13 +40,14 @@
             this.settingLabel = new System.Windows.Forms.Label();
             this.manfacturRequesDataGrid = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.supplieId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.warehouseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.warehouseLoaction = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.submitBtn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.homePanel.SuspendLayout();
             this.addProductPanel.SuspendLayout();
@@ -200,13 +201,14 @@
             this.manfacturRequesDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.manfacturRequesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.manfacturRequesDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.supplieId,
             this.warehouseName,
             this.warehouseLoaction,
             this.productName,
             this.productCode,
             this.productAmount,
             this.submitBtn});
-            this.manfacturRequesDataGrid.Location = new System.Drawing.Point(6, 158);
+            this.manfacturRequesDataGrid.Location = new System.Drawing.Point(3, 152);
             this.manfacturRequesDataGrid.Name = "manfacturRequesDataGrid";
             this.manfacturRequesDataGrid.ReadOnly = true;
             this.manfacturRequesDataGrid.Size = new System.Drawing.Size(655, 244);
@@ -224,6 +226,23 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Manufacturing Request";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.manfacturRequesDataGrid);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(194, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(664, 450);
+            this.panel1.TabIndex = 3;
+            // 
+            // supplieId
+            // 
+            this.supplieId.HeaderText = "request ID";
+            this.supplieId.Name = "supplieId";
+            this.supplieId.ReadOnly = true;
             // 
             // warehouseName
             // 
@@ -260,17 +279,6 @@
             this.submitBtn.HeaderText = "order sent";
             this.submitBtn.Name = "submitBtn";
             this.submitBtn.ReadOnly = true;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.manfacturRequesDataGrid);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(194, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(664, 450);
-            this.panel1.TabIndex = 3;
             // 
             // FactoryManufacturingRequestsForm
             // 
@@ -314,12 +322,13 @@
         private System.Windows.Forms.Label settingLabel;
         private System.Windows.Forms.DataGridView manfacturRequesDataGrid;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn supplieId;
         private System.Windows.Forms.DataGridViewTextBoxColumn warehouseName;
         private System.Windows.Forms.DataGridViewTextBoxColumn warehouseLoaction;
         private System.Windows.Forms.DataGridViewTextBoxColumn productName;
         private System.Windows.Forms.DataGridViewTextBoxColumn productCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn productAmount;
         private System.Windows.Forms.DataGridViewButtonColumn submitBtn;
-        private System.Windows.Forms.Panel panel1;
     }
 }
