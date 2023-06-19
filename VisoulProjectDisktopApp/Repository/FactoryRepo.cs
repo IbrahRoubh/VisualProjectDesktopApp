@@ -13,6 +13,38 @@ namespace VisoulProjectDisktopApp
     internal class FactoryRepo
     {
         SqlConnection conn = new SqlConnection("Data Source=DESKTOP-NEQA9MK;Initial Catalog=VisoulProjectDB;Persist Security Info=True;User ID=ibrahim;Password=123");
+        
+        public FactoryModel getFactoryById(int id)
+        {
+            try
+            {
+                string query = "SELECT * FROM Factory WHERE ID = '" + id + "'";
+                SqlCommand command = new SqlCommand(query, conn);
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                FactoryModel factory = new FactoryModel();
+                if (reader.Read())
+                {
+                    factory.id = (int)reader["ID"];
+                    factory.name = (String)reader["name"];
+                    factory.password = (String)reader["password"];
+                    factory.location = (String)reader["location"];
+                    factory.phoneNum = (String)reader["phone"];
+                    factory.email = (String)reader["email"];
+                }
+                return factory;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("error " + ex);
+                return null;
+            }
+            finally { conn.Close(); }
+
+
+
+        }
+        
         public FactoryModel getUser(String email,String password)
         {
             try

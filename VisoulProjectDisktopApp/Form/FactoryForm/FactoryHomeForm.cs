@@ -14,16 +14,17 @@ namespace VisoulProjectDisktopApp
     public partial class FactoryHomeForm : Form
     {
         private FactoryModel factory;
+        private FactoryRepo factoryRepo = new FactoryRepo();
 
-        public FactoryHomeForm(FactoryModel factory)
+        public FactoryHomeForm(int id)
         {
-            this.factory = factory;
+            this.factory = factoryRepo.getFactoryById(id);
             InitializeComponent();
         }
 
         public void toAddProduct(Object sender, EventArgs e)
         {
-            FactoryAddProductForm productForm = new FactoryAddProductForm(factory);
+            FactoryAddProductForm productForm = new FactoryAddProductForm(factory.id);
             this.Hide();
             productForm.ShowDialog();
             this.Dispose();
@@ -31,7 +32,7 @@ namespace VisoulProjectDisktopApp
 
         public void toManufacturingRequests(Object sender, EventArgs e)
         {
-            FactoryManufacturingRequestsForm requestsForm = new FactoryManufacturingRequestsForm(factory);
+            FactoryManufacturingRequestsForm requestsForm = new FactoryManufacturingRequestsForm(factory.id);
             this.Hide();
             requestsForm.ShowDialog();
             this.Dispose();
@@ -39,7 +40,7 @@ namespace VisoulProjectDisktopApp
 
         public void toSetting(Object sender, EventArgs e)
         {
-            FactorySettingsForm settingsForm= new FactorySettingsForm(factory);
+            FactorySettingsForm settingsForm= new FactorySettingsForm(factory.id);
             this.Hide();
             settingsForm.ShowDialog();
             this.Dispose();

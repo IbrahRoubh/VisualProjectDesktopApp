@@ -52,6 +52,11 @@
             this.newPasswordTxt = new System.Windows.Forms.TextBox();
             this.nameTxt = new System.Windows.Forms.TextBox();
             this.phoneTxt = new System.Windows.Forms.MaskedTextBox();
+            this.nameValidateLabel = new System.Windows.Forms.Label();
+            this.locationValidateLabel = new System.Windows.Forms.Label();
+            this.phoneValidateLabel = new System.Windows.Forms.Label();
+            this.oldPasswordValidateLabel = new System.Windows.Forms.Label();
+            this.newPasswordValidateLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.homePanel.SuspendLayout();
             this.addProductPanel.SuspendLayout();
@@ -95,6 +100,7 @@
             // 
             // homePanel
             // 
+            this.homePanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.homePanel.Controls.Add(this.homeLabel);
             this.homePanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.homePanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -110,7 +116,7 @@
             this.homeLabel.AutoSize = true;
             this.homeLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.homeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.homeLabel.Location = new System.Drawing.Point(73, 37);
+            this.homeLabel.Location = new System.Drawing.Point(71, 35);
             this.homeLabel.Name = "homeLabel";
             this.homeLabel.Size = new System.Drawing.Size(49, 20);
             this.homeLabel.TabIndex = 0;
@@ -120,6 +126,7 @@
             // 
             // addProductPanel
             // 
+            this.addProductPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.addProductPanel.Controls.Add(this.addProductLabel);
             this.addProductPanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addProductPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -135,7 +142,7 @@
             this.addProductLabel.AutoSize = true;
             this.addProductLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addProductLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addProductLabel.Location = new System.Drawing.Point(51, 41);
+            this.addProductLabel.Location = new System.Drawing.Point(49, 39);
             this.addProductLabel.Name = "addProductLabel";
             this.addProductLabel.Size = new System.Drawing.Size(94, 20);
             this.addProductLabel.TabIndex = 0;
@@ -145,6 +152,7 @@
             // 
             // manufacturingRequestPanel
             // 
+            this.manufacturingRequestPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.manufacturingRequestPanel.Controls.Add(this.manufacturingRequestsLabel);
             this.manufacturingRequestPanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.manufacturingRequestPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -160,7 +168,7 @@
             this.manufacturingRequestsLabel.AutoSize = true;
             this.manufacturingRequestsLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.manufacturingRequestsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.manufacturingRequestsLabel.Location = new System.Drawing.Point(12, 34);
+            this.manufacturingRequestsLabel.Location = new System.Drawing.Point(10, 32);
             this.manufacturingRequestsLabel.Name = "manufacturingRequestsLabel";
             this.manufacturingRequestsLabel.Size = new System.Drawing.Size(177, 20);
             this.manufacturingRequestsLabel.TabIndex = 0;
@@ -170,6 +178,7 @@
             // 
             // settingPanel
             // 
+            this.settingPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.settingPanel.Controls.Add(this.settingLabel);
             this.settingPanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.settingPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -184,7 +193,7 @@
             this.settingLabel.AutoSize = true;
             this.settingLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.settingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.settingLabel.Location = new System.Drawing.Point(65, 39);
+            this.settingLabel.Location = new System.Drawing.Point(63, 37);
             this.settingLabel.Name = "settingLabel";
             this.settingLabel.Size = new System.Drawing.Size(57, 20);
             this.settingLabel.TabIndex = 0;
@@ -315,13 +324,73 @@
             this.phoneTxt.Mask = "(999) 000-0000";
             this.phoneTxt.Name = "phoneTxt";
             this.phoneTxt.Size = new System.Drawing.Size(135, 20);
-            this.phoneTxt.TabIndex = 3;            
+            this.phoneTxt.TabIndex = 3;
+            // 
+            // nameValidateLabel
+            // 
+            this.nameValidateLabel.AutoSize = true;
+            this.nameValidateLabel.ForeColor = System.Drawing.Color.Red;
+            this.nameValidateLabel.Location = new System.Drawing.Point(671, 155);
+            this.nameValidateLabel.Name = "nameValidateLabel";
+            this.nameValidateLabel.Size = new System.Drawing.Size(72, 13);
+            this.nameValidateLabel.TabIndex = 9;
+            this.nameValidateLabel.Text = "Validate MSG";
+            this.nameValidateLabel.Visible = false;
+            // 
+            // locationValidateLabel
+            // 
+            this.locationValidateLabel.AutoSize = true;
+            this.locationValidateLabel.ForeColor = System.Drawing.Color.Red;
+            this.locationValidateLabel.Location = new System.Drawing.Point(407, 212);
+            this.locationValidateLabel.Name = "locationValidateLabel";
+            this.locationValidateLabel.Size = new System.Drawing.Size(72, 13);
+            this.locationValidateLabel.TabIndex = 10;
+            this.locationValidateLabel.Text = "Validate MSG";
+            this.locationValidateLabel.Visible = false;
+            // 
+            // phoneValidateLabel
+            // 
+            this.phoneValidateLabel.AutoSize = true;
+            this.phoneValidateLabel.ForeColor = System.Drawing.Color.Red;
+            this.phoneValidateLabel.Location = new System.Drawing.Point(674, 216);
+            this.phoneValidateLabel.Name = "phoneValidateLabel";
+            this.phoneValidateLabel.Size = new System.Drawing.Size(72, 13);
+            this.phoneValidateLabel.TabIndex = 11;
+            this.phoneValidateLabel.Text = "Validate MSG";
+            this.phoneValidateLabel.Visible = false;
+            // 
+            // oldPasswordValidateLabel
+            // 
+            this.oldPasswordValidateLabel.AutoSize = true;
+            this.oldPasswordValidateLabel.ForeColor = System.Drawing.Color.Red;
+            this.oldPasswordValidateLabel.Location = new System.Drawing.Point(407, 280);
+            this.oldPasswordValidateLabel.Name = "oldPasswordValidateLabel";
+            this.oldPasswordValidateLabel.Size = new System.Drawing.Size(72, 13);
+            this.oldPasswordValidateLabel.TabIndex = 12;
+            this.oldPasswordValidateLabel.Text = "Validate MSG";
+            this.oldPasswordValidateLabel.Visible = false;
+            // 
+            // newPasswordValidateLabel
+            // 
+            this.newPasswordValidateLabel.AutoSize = true;
+            this.newPasswordValidateLabel.ForeColor = System.Drawing.Color.Red;
+            this.newPasswordValidateLabel.Location = new System.Drawing.Point(650, 280);
+            this.newPasswordValidateLabel.Name = "newPasswordValidateLabel";
+            this.newPasswordValidateLabel.Size = new System.Drawing.Size(72, 13);
+            this.newPasswordValidateLabel.TabIndex = 13;
+            this.newPasswordValidateLabel.Text = "Validate MSG";
+            this.newPasswordValidateLabel.Visible = false;
             // 
             // FactorySettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.newPasswordValidateLabel);
+            this.Controls.Add(this.oldPasswordValidateLabel);
+            this.Controls.Add(this.phoneValidateLabel);
+            this.Controls.Add(this.locationValidateLabel);
+            this.Controls.Add(this.nameValidateLabel);
             this.Controls.Add(this.phoneTxt);
             this.Controls.Add(this.nameTxt);
             this.Controls.Add(this.newPasswordTxt);
@@ -382,5 +451,10 @@
         private System.Windows.Forms.TextBox newPasswordTxt;
         private System.Windows.Forms.TextBox nameTxt;
         private System.Windows.Forms.MaskedTextBox phoneTxt;
+        private System.Windows.Forms.Label nameValidateLabel;
+        private System.Windows.Forms.Label locationValidateLabel;
+        private System.Windows.Forms.Label phoneValidateLabel;
+        private System.Windows.Forms.Label oldPasswordValidateLabel;
+        private System.Windows.Forms.Label newPasswordValidateLabel;
     }
 }

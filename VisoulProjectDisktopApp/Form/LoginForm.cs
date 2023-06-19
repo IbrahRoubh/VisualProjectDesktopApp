@@ -45,7 +45,7 @@ namespace VisoulProjectDisktopApp
                     FactoryModel factory = factoryRepo.getUser(emailTxt.Text, passwordTxt.Text);
                     if (factory!=null)
                     {
-                        FactoryHomeForm homeForm = new FactoryHomeForm(factory);
+                        FactoryHomeForm homeForm = new FactoryHomeForm(factory.id);
                         this.Hide();
                         homeForm.ShowDialog();
                         this.Dispose();

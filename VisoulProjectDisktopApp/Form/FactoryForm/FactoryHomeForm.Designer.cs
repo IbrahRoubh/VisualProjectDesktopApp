@@ -81,6 +81,7 @@
             // 
             // homePanel
             // 
+            this.homePanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.homePanel.Controls.Add(this.homeLabel);
             this.homePanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.homePanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -95,7 +96,7 @@
             this.homeLabel.AutoSize = true;
             this.homeLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.homeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.homeLabel.Location = new System.Drawing.Point(76, 37);
+            this.homeLabel.Location = new System.Drawing.Point(74, 35);
             this.homeLabel.Name = "homeLabel";
             this.homeLabel.Size = new System.Drawing.Size(49, 20);
             this.homeLabel.TabIndex = 0;
@@ -104,6 +105,7 @@
             // 
             // addProductPanel
             // 
+            this.addProductPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.addProductPanel.Controls.Add(this.addProductLabel);
             this.addProductPanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addProductPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -119,7 +121,7 @@
             this.addProductLabel.AutoSize = true;
             this.addProductLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addProductLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addProductLabel.Location = new System.Drawing.Point(54, 41);
+            this.addProductLabel.Location = new System.Drawing.Point(52, 39);
             this.addProductLabel.Name = "addProductLabel";
             this.addProductLabel.Size = new System.Drawing.Size(94, 20);
             this.addProductLabel.TabIndex = 0;
@@ -129,6 +131,7 @@
             // 
             // manufacturingRequestPanel
             // 
+            this.manufacturingRequestPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.manufacturingRequestPanel.Controls.Add(this.manufacturingRequestsLabel);
             this.manufacturingRequestPanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.manufacturingRequestPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -144,7 +147,7 @@
             this.manufacturingRequestsLabel.AutoSize = true;
             this.manufacturingRequestsLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.manufacturingRequestsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.manufacturingRequestsLabel.Location = new System.Drawing.Point(15, 34);
+            this.manufacturingRequestsLabel.Location = new System.Drawing.Point(13, 32);
             this.manufacturingRequestsLabel.Name = "manufacturingRequestsLabel";
             this.manufacturingRequestsLabel.Size = new System.Drawing.Size(177, 20);
             this.manufacturingRequestsLabel.TabIndex = 0;
@@ -154,6 +157,7 @@
             // 
             // settingPanel
             // 
+            this.settingPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.settingPanel.Controls.Add(this.settingLabel);
             this.settingPanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.settingPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -169,7 +173,7 @@
             this.settingLabel.AutoSize = true;
             this.settingLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.settingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.settingLabel.Location = new System.Drawing.Point(68, 39);
+            this.settingLabel.Location = new System.Drawing.Point(66, 37);
             this.settingLabel.Name = "settingLabel";
             this.settingLabel.Size = new System.Drawing.Size(57, 20);
             this.settingLabel.TabIndex = 0;

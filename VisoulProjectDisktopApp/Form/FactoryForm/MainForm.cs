@@ -26,30 +26,14 @@ namespace VisoulProjectDisktopApp
         private ProductRepo productRepo = new ProductRepo();
         private StoreRepo storeRepo = new StoreRepo();
         private SuppliesRepo suppliesRepo = new SuppliesRepo();
-
-        private CookieManager cookieManager;
-        String username;
-        public MainForm(CookieManager cookieManager)
+        public MainForm()
         {
-            this.cookieManager = cookieManager;
             InitializeComponent();
         }
        
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            CookieCollection cookies = cookieManager.GetCookie().GetCookies(new Uri("http://localhost")); ;
-            if (cookies["username"] != null)
-            {
-                username = cookies["username"].Value;
-            }
-            factoryRepo.loadFactory(factrory, username);
-            setInfo();
-        }
-
-        private void setInfo()
-        {
-            usernameLabel.Text = username;
         }
 
         DataGridView storeGridView;

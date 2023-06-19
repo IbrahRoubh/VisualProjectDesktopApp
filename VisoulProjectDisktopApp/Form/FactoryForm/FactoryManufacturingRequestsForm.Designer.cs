@@ -38,11 +38,22 @@
             this.manufacturingRequestsLabel = new System.Windows.Forms.Label();
             this.settingPanel = new System.Windows.Forms.Panel();
             this.settingLabel = new System.Windows.Forms.Label();
+            this.manfacturRequesDataGrid = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.warehouseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.warehouseLoaction = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.submitBtn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.homePanel.SuspendLayout();
             this.addProductPanel.SuspendLayout();
             this.manufacturingRequestPanel.SuspendLayout();
             this.settingPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.manfacturRequesDataGrid)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -81,6 +92,7 @@
             // 
             // homePanel
             // 
+            this.homePanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.homePanel.Controls.Add(this.homeLabel);
             this.homePanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.homePanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -96,7 +108,7 @@
             this.homeLabel.AutoSize = true;
             this.homeLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.homeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.homeLabel.Location = new System.Drawing.Point(70, 37);
+            this.homeLabel.Location = new System.Drawing.Point(68, 35);
             this.homeLabel.Name = "homeLabel";
             this.homeLabel.Size = new System.Drawing.Size(49, 20);
             this.homeLabel.TabIndex = 0;
@@ -106,6 +118,7 @@
             // 
             // addProductPanel
             // 
+            this.addProductPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.addProductPanel.Controls.Add(this.addProductLabel);
             this.addProductPanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addProductPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -121,7 +134,7 @@
             this.addProductLabel.AutoSize = true;
             this.addProductLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addProductLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addProductLabel.Location = new System.Drawing.Point(48, 41);
+            this.addProductLabel.Location = new System.Drawing.Point(46, 39);
             this.addProductLabel.Name = "addProductLabel";
             this.addProductLabel.Size = new System.Drawing.Size(94, 20);
             this.addProductLabel.TabIndex = 0;
@@ -131,6 +144,7 @@
             // 
             // manufacturingRequestPanel
             // 
+            this.manufacturingRequestPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.manufacturingRequestPanel.Controls.Add(this.manufacturingRequestsLabel);
             this.manufacturingRequestPanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.manufacturingRequestPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -145,7 +159,7 @@
             this.manufacturingRequestsLabel.AutoSize = true;
             this.manufacturingRequestsLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.manufacturingRequestsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.manufacturingRequestsLabel.Location = new System.Drawing.Point(9, 34);
+            this.manufacturingRequestsLabel.Location = new System.Drawing.Point(7, 32);
             this.manufacturingRequestsLabel.Name = "manufacturingRequestsLabel";
             this.manufacturingRequestsLabel.Size = new System.Drawing.Size(177, 20);
             this.manufacturingRequestsLabel.TabIndex = 0;
@@ -154,6 +168,7 @@
             // 
             // settingPanel
             // 
+            this.settingPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.settingPanel.Controls.Add(this.settingLabel);
             this.settingPanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.settingPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -169,7 +184,7 @@
             this.settingLabel.AutoSize = true;
             this.settingLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.settingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.settingLabel.Location = new System.Drawing.Point(62, 39);
+            this.settingLabel.Location = new System.Drawing.Point(60, 37);
             this.settingLabel.Name = "settingLabel";
             this.settingLabel.Size = new System.Drawing.Size(57, 20);
             this.settingLabel.TabIndex = 0;
@@ -177,15 +192,97 @@
             this.settingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.settingLabel.Click += new System.EventHandler(this.toSetting);
             // 
+            // manfacturRequesDataGrid
+            // 
+            this.manfacturRequesDataGrid.AllowUserToAddRows = false;
+            this.manfacturRequesDataGrid.AllowUserToDeleteRows = false;
+            this.manfacturRequesDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.manfacturRequesDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.manfacturRequesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.manfacturRequesDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.warehouseName,
+            this.warehouseLoaction,
+            this.productName,
+            this.productCode,
+            this.productAmount,
+            this.submitBtn});
+            this.manfacturRequesDataGrid.Location = new System.Drawing.Point(6, 158);
+            this.manfacturRequesDataGrid.Name = "manfacturRequesDataGrid";
+            this.manfacturRequesDataGrid.ReadOnly = true;
+            this.manfacturRequesDataGrid.Size = new System.Drawing.Size(655, 244);
+            this.manfacturRequesDataGrid.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(224, 52);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(225, 24);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Manufacturing Request";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // warehouseName
+            // 
+            this.warehouseName.HeaderText = "warehouse";
+            this.warehouseName.Name = "warehouseName";
+            this.warehouseName.ReadOnly = true;
+            // 
+            // warehouseLoaction
+            // 
+            this.warehouseLoaction.HeaderText = "warehouse location";
+            this.warehouseLoaction.Name = "warehouseLoaction";
+            this.warehouseLoaction.ReadOnly = true;
+            // 
+            // productName
+            // 
+            this.productName.HeaderText = "product";
+            this.productName.Name = "productName";
+            this.productName.ReadOnly = true;
+            // 
+            // productCode
+            // 
+            this.productCode.HeaderText = "product code";
+            this.productCode.Name = "productCode";
+            this.productCode.ReadOnly = true;
+            // 
+            // productAmount
+            // 
+            this.productAmount.HeaderText = "product amount";
+            this.productAmount.Name = "productAmount";
+            this.productAmount.ReadOnly = true;
+            // 
+            // submitBtn
+            // 
+            this.submitBtn.HeaderText = "order sent";
+            this.submitBtn.Name = "submitBtn";
+            this.submitBtn.ReadOnly = true;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.manfacturRequesDataGrid);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(194, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(664, 450);
+            this.panel1.TabIndex = 3;
+            // 
             // FactoryManufacturingRequestsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(858, 450);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FactoryManufacturingRequestsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manufacturing Requests";
+            this.Load += new System.EventHandler(this.FactoryManufacturingRequestsForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.homePanel.ResumeLayout(false);
@@ -196,6 +293,9 @@
             this.manufacturingRequestPanel.PerformLayout();
             this.settingPanel.ResumeLayout(false);
             this.settingPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.manfacturRequesDataGrid)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -212,5 +312,14 @@
         private System.Windows.Forms.Label addProductLabel;
         private System.Windows.Forms.Label manufacturingRequestsLabel;
         private System.Windows.Forms.Label settingLabel;
+        private System.Windows.Forms.DataGridView manfacturRequesDataGrid;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn warehouseName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn warehouseLoaction;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productAmount;
+        private System.Windows.Forms.DataGridViewButtonColumn submitBtn;
+        private System.Windows.Forms.Panel panel1;
     }
 }
