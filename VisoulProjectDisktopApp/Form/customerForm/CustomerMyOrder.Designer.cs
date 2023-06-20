@@ -40,12 +40,38 @@
             this.warehouseLabel = new System.Windows.Forms.Label();
             this.settingsPanel = new System.Windows.Forms.Panel();
             this.settingsLabel = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.titleLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.orderTrackNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderTrackNumberOrders = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productNameOrders = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productAmountOrders = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fromLocationOrders = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toLocationOrders = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalPriceOrders = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estimatedDepartureDateOrders = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estimatedArrivalDateOrders = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.arraivaleApproveBtn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.productNameWait = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fromLocationWait = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toLocationWait = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalPriceWait = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estimatedDepartureDateWait = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estimatedArrivalDateWait = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.homePanel.SuspendLayout();
             this.orderPanel.SuspendLayout();
             this.prevOrderPanel.SuspendLayout();
             this.warehousePanel.SuspendLayout();
             this.settingsPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -216,13 +242,204 @@
             this.settingsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.settingsLabel.Click += new System.EventHandler(this.toSetting);
             // 
-            // MainCustomerForm
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dataGridView2);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.titleLabel);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(146, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(654, 450);
+            this.panel1.TabIndex = 1;
+            // 
+            // titleLabel
+            // 
+            this.titleLabel.AutoSize = true;
+            this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLabel.Location = new System.Drawing.Point(253, 22);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(121, 25);
+            this.titleLabel.TabIndex = 0;
+            this.titleLabel.Text = "My Orders";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(80, 78);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 24);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Orders";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.orderTrackNumberOrders,
+            this.productNameOrders,
+            this.productAmountOrders,
+            this.fromLocationOrders,
+            this.toLocationOrders,
+            this.totalPriceOrders,
+            this.estimatedDepartureDateOrders,
+            this.estimatedArrivalDateOrders,
+            this.arraivaleApproveBtn});
+            this.dataGridView1.Location = new System.Drawing.Point(6, 110);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(636, 112);
+            this.dataGridView1.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(80, 261);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(248, 24);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Wait for warehouse approval";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.orderTrackNumber,
+            this.productNameWait,
+            this.productAmount,
+            this.fromLocationWait,
+            this.toLocationWait,
+            this.totalPriceWait,
+            this.estimatedDepartureDateWait,
+            this.estimatedArrivalDateWait});
+            this.dataGridView2.Location = new System.Drawing.Point(6, 291);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.Size = new System.Drawing.Size(636, 121);
+            this.dataGridView2.TabIndex = 4;
+            // 
+            // orderTrackNumber
+            // 
+            this.orderTrackNumber.HeaderText = "track number";
+            this.orderTrackNumber.Name = "orderTrackNumber";
+            this.orderTrackNumber.ReadOnly = true;
+            // 
+            // orderTrackNumberOrders
+            // 
+            this.orderTrackNumberOrders.HeaderText = "track number";
+            this.orderTrackNumberOrders.Name = "orderTrackNumberOrders";
+            this.orderTrackNumberOrders.ReadOnly = true;
+            // 
+            // productNameOrders
+            // 
+            this.productNameOrders.HeaderText = "product";
+            this.productNameOrders.Name = "productNameOrders";
+            this.productNameOrders.ReadOnly = true;
+            // 
+            // productAmountOrders
+            // 
+            this.productAmountOrders.HeaderText = "amount";
+            this.productAmountOrders.Name = "productAmountOrders";
+            this.productAmountOrders.ReadOnly = true;
+            // 
+            // fromLocationOrders
+            // 
+            this.fromLocationOrders.HeaderText = "from";
+            this.fromLocationOrders.Name = "fromLocationOrders";
+            this.fromLocationOrders.ReadOnly = true;
+            // 
+            // toLocationOrders
+            // 
+            this.toLocationOrders.HeaderText = "to";
+            this.toLocationOrders.Name = "toLocationOrders";
+            this.toLocationOrders.ReadOnly = true;
+            // 
+            // totalPriceOrders
+            // 
+            this.totalPriceOrders.HeaderText = "total price";
+            this.totalPriceOrders.Name = "totalPriceOrders";
+            this.totalPriceOrders.ReadOnly = true;
+            // 
+            // estimatedDepartureDateOrders
+            // 
+            this.estimatedDepartureDateOrders.HeaderText = "Estimated departure date";
+            this.estimatedDepartureDateOrders.Name = "estimatedDepartureDateOrders";
+            this.estimatedDepartureDateOrders.ReadOnly = true;
+            // 
+            // estimatedArrivalDateOrders
+            // 
+            this.estimatedArrivalDateOrders.HeaderText = "estimated arrival date";
+            this.estimatedArrivalDateOrders.Name = "estimatedArrivalDateOrders";
+            this.estimatedArrivalDateOrders.ReadOnly = true;
+            // 
+            // arraivaleApproveBtn
+            // 
+            this.arraivaleApproveBtn.HeaderText = "arrive report";
+            this.arraivaleApproveBtn.Name = "arraivaleApproveBtn";
+            this.arraivaleApproveBtn.ReadOnly = true;
+            // 
+            // productNameWait
+            // 
+            this.productNameWait.HeaderText = "product";
+            this.productNameWait.Name = "productNameWait";
+            this.productNameWait.ReadOnly = true;
+            // 
+            // productAmount
+            // 
+            this.productAmount.HeaderText = "amount";
+            this.productAmount.Name = "productAmount";
+            this.productAmount.ReadOnly = true;
+            // 
+            // fromLocationWait
+            // 
+            this.fromLocationWait.HeaderText = "from";
+            this.fromLocationWait.Name = "fromLocationWait";
+            this.fromLocationWait.ReadOnly = true;
+            // 
+            // toLocationWait
+            // 
+            this.toLocationWait.HeaderText = "to";
+            this.toLocationWait.Name = "toLocationWait";
+            this.toLocationWait.ReadOnly = true;
+            // 
+            // totalPriceWait
+            // 
+            this.totalPriceWait.HeaderText = "totalPrice";
+            this.totalPriceWait.Name = "totalPriceWait";
+            this.totalPriceWait.ReadOnly = true;
+            // 
+            // estimatedDepartureDateWait
+            // 
+            this.estimatedDepartureDateWait.HeaderText = "estimated departure date";
+            this.estimatedDepartureDateWait.Name = "estimatedDepartureDateWait";
+            this.estimatedDepartureDateWait.ReadOnly = true;
+            // 
+            // estimatedArrivalDateWait
+            // 
+            this.estimatedArrivalDateWait.HeaderText = "estimated arrival date";
+            this.estimatedArrivalDateWait.Name = "estimatedArrivalDateWait";
+            this.estimatedArrivalDateWait.ReadOnly = true;
+            // 
+            // CustomerMyOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "CustomerMyOrderForm";
+            this.Name = "CustomerMyOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "My order";
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -237,6 +454,10 @@
             this.warehousePanel.PerformLayout();
             this.settingsPanel.ResumeLayout(false);
             this.settingsPanel.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -255,5 +476,28 @@
         private System.Windows.Forms.Label warehouseLabel;
         private System.Windows.Forms.Panel settingsPanel;
         private System.Windows.Forms.Label settingsLabel;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label titleLabel;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orderTrackNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productNameWait;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fromLocationWait;
+        private System.Windows.Forms.DataGridViewTextBoxColumn toLocationWait;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalPriceWait;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estimatedDepartureDateWait;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estimatedArrivalDateWait;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orderTrackNumberOrders;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productNameOrders;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productAmountOrders;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fromLocationOrders;
+        private System.Windows.Forms.DataGridViewTextBoxColumn toLocationOrders;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalPriceOrders;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estimatedDepartureDateOrders;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estimatedArrivalDateOrders;
+        private System.Windows.Forms.DataGridViewButtonColumn arraivaleApproveBtn;
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace VisoulProjectDisktopApp
+﻿using System.Windows.Forms;
+
+namespace VisoulProjectDisktopApp
 {
     partial class FactoryAddProductForm
     {
@@ -49,6 +51,11 @@
             this.productDescriptionTxt = new System.Windows.Forms.TextBox();
             this.prdouctAmountLabel = new System.Windows.Forms.Label();
             this.productAmountTxt = new System.Windows.Forms.TextBox();
+            this.priceLabel = new System.Windows.Forms.Label();
+            this.priceTxt = new System.Windows.Forms.TextBox();
+            this.priceValidateMsg = new System.Windows.Forms.Label();
+            this.nameValidateMsg = new System.Windows.Forms.Label();
+            this.codeValidateMsg = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.homePanel.SuspendLayout();
             this.addProductPanel.SuspendLayout();
@@ -225,10 +232,10 @@
             // addProductBtn
             // 
             this.addProductBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addProductBtn.Location = new System.Drawing.Point(568, 363);
+            this.addProductBtn.Location = new System.Drawing.Point(568, 415);
             this.addProductBtn.Name = "addProductBtn";
             this.addProductBtn.Size = new System.Drawing.Size(75, 23);
-            this.addProductBtn.TabIndex = 4;
+            this.addProductBtn.TabIndex = 5;
             this.addProductBtn.Text = "add";
             this.addProductBtn.UseVisualStyleBackColor = true;
             this.addProductBtn.Click += new System.EventHandler(this.addProductBtn_Click);
@@ -268,7 +275,7 @@
             // 
             this.prdouctAmountLabel.AutoSize = true;
             this.prdouctAmountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prdouctAmountLabel.Location = new System.Drawing.Point(377, 307);
+            this.prdouctAmountLabel.Location = new System.Drawing.Point(377, 304);
             this.prdouctAmountLabel.Name = "prdouctAmountLabel";
             this.prdouctAmountLabel.Size = new System.Drawing.Size(51, 16);
             this.prdouctAmountLabel.TabIndex = 9;
@@ -276,17 +283,73 @@
             // 
             // productAmountTxt
             // 
-            this.productAmountTxt.Location = new System.Drawing.Point(512, 306);
+            this.productAmountTxt.Location = new System.Drawing.Point(512, 303);
             this.productAmountTxt.Name = "productAmountTxt";
             this.productAmountTxt.Size = new System.Drawing.Size(131, 20);
             this.productAmountTxt.TabIndex = 3;
             this.productAmountTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.productAmountTxt_KeyPress);
+            // 
+            // priceLabel
+            // 
+            this.priceLabel.AutoSize = true;
+            this.priceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.priceLabel.Location = new System.Drawing.Point(380, 363);
+            this.priceLabel.Name = "priceLabel";
+            this.priceLabel.Size = new System.Drawing.Size(37, 16);
+            this.priceLabel.TabIndex = 10;
+            this.priceLabel.Text = "price";
+            // 
+            // priceTxt
+            // 
+            this.priceTxt.Location = new System.Drawing.Point(512, 362);
+            this.priceTxt.Name = "priceTxt";
+            this.priceTxt.Size = new System.Drawing.Size(131, 20);
+            this.priceTxt.TabIndex = 4;
+            this.priceTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.priceTxt_KeyPress);
+            // 
+            // priceValidateMsg
+            // 
+            this.priceValidateMsg.AutoSize = true;
+            this.priceValidateMsg.ForeColor = System.Drawing.Color.Red;
+            this.priceValidateMsg.Location = new System.Drawing.Point(537, 385);
+            this.priceValidateMsg.Name = "priceValidateMsg";
+            this.priceValidateMsg.Size = new System.Drawing.Size(72, 13);
+            this.priceValidateMsg.TabIndex = 11;
+            this.priceValidateMsg.Text = "Validate MSG";
+            this.priceValidateMsg.Visible = false;
+            // 
+            // nameValidateMsg
+            // 
+            this.nameValidateMsg.AutoSize = true;
+            this.nameValidateMsg.ForeColor = System.Drawing.Color.Red;
+            this.nameValidateMsg.Location = new System.Drawing.Point(537, 139);
+            this.nameValidateMsg.Name = "nameValidateMsg";
+            this.nameValidateMsg.Size = new System.Drawing.Size(72, 13);
+            this.nameValidateMsg.TabIndex = 12;
+            this.nameValidateMsg.Text = "Validate MSG";
+            this.nameValidateMsg.Visible = false;
+            // 
+            // codeValidateMsg
+            // 
+            this.codeValidateMsg.AutoSize = true;
+            this.codeValidateMsg.ForeColor = System.Drawing.Color.Red;
+            this.codeValidateMsg.Location = new System.Drawing.Point(537, 206);
+            this.codeValidateMsg.Name = "codeValidateMsg";
+            this.codeValidateMsg.Size = new System.Drawing.Size(72, 13);
+            this.codeValidateMsg.TabIndex = 13;
+            this.codeValidateMsg.Text = "Validate MSG";
+            this.codeValidateMsg.Visible = false;
             // 
             // FactoryAddProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.codeValidateMsg);
+            this.Controls.Add(this.nameValidateMsg);
+            this.Controls.Add(this.priceValidateMsg);
+            this.Controls.Add(this.priceTxt);
+            this.Controls.Add(this.priceLabel);
             this.Controls.Add(this.productAmountTxt);
             this.Controls.Add(this.prdouctAmountLabel);
             this.Controls.Add(this.productDescriptionTxt);
@@ -339,5 +402,10 @@
         private System.Windows.Forms.TextBox productDescriptionTxt;
         private System.Windows.Forms.Label prdouctAmountLabel;
         private System.Windows.Forms.TextBox productAmountTxt;
+        private System.Windows.Forms.Label priceLabel;
+        private System.Windows.Forms.TextBox priceTxt;
+        private Label priceValidateMsg;
+        private Label nameValidateMsg;
+        private Label codeValidateMsg;
     }
 }

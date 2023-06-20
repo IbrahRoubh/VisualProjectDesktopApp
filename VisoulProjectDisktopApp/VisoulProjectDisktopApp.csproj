@@ -132,6 +132,9 @@
     <Compile Include="Form\customerForm\SignupForm.Designer.cs">
       <DependentUpon>SignupForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Form\customerForm\CustomerPreviosOrder.resx">
+      <DependentUpon>CustomerPreviosOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\customerForm\CustomerSetting.resx">
       <DependentUpon>CustomerSetting.cs</DependentUpon>
     </EmbeddedResource>
@@ -185,6 +188,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\loginPhoto.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Form\WarehouseForm\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

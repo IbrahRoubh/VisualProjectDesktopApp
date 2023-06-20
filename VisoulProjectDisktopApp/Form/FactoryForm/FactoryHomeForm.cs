@@ -45,5 +45,43 @@ namespace VisoulProjectDisktopApp
             settingsForm.ShowDialog();
             this.Dispose();
         }
+
+        private void FactoryHomeForm_Load(object sender, EventArgs e)
+        {
+            nameLabel.Text = factory.name;
+            manfactoryRecoustAmountTxt.Text =  factoryRepo.getReustAmount(factory.id).ToString();
+            loadProducts();
+        }
+
+        private void loadProducts()
+        {
+            List<ProductModel> products = factoryRepo.getFactoryProducts(factory.id);
+            if (products != null)
+            {
+                foreach (ProductModel product in products)
+                {
+                    int amount = factoryRepo.getProductAmount(product.id, factory.id);
+                    myProductDataGrid.Rows.Add(product.name, product.code, product.description, product.price, amount);
+                }
+            }
+        }
+
+        private void logoutBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you want to logout?", "Confirmation", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                toLogin();
+            }
+        }
+
+        private void toLogin()
+        {
+            LoginForm login = new LoginForm();
+            this.Hide();
+            login.ShowDialog();
+            this.Dispose();
+        }
     }
 }

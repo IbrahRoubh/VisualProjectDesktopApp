@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Net;
 using VisoulProjectDisktopApp.model;
 using System.Windows.Forms;
+using System.Data.SqlTypes;
 
 namespace VisoulProjectDisktopApp
 {
@@ -114,7 +115,8 @@ namespace VisoulProjectDisktopApp
         {
             try
             {
-                String query = "SELECT * FROM supplies WHERE FID ='"+FID+ "' AND Direction ='factory' AND Status ='ordered'";
+                String query = "SELECT * FROM supplies WHERE FID ='"+FID+ "' AND Direction ='factory' " +
+                    "AND Status ='ordered';";
                 SqlCommand command = new SqlCommand(query, conn);
                 conn.Open();
                 SqlDataReader reader = command.ExecuteReader();
@@ -146,5 +148,103 @@ namespace VisoulProjectDisktopApp
             }
         }
 
+        public int getReustAmount(int FID)
+        {
+            try
+            {
+                int amount=0;
+                string query = "SELECT COUNT(*) FROM supplies WHERE FID ='" + FID+"'" +
+                    " AND Direction ='factory' AND Status ='ordered';";
+                SqlCommand command = new SqlCommand(query, conn);
+                conn.Open();
+
+                object result = command.ExecuteScalar();
+
+                if (result != null && result != DBNull.Value)
+                {
+                    amount = Convert.ToInt32(result);
+                    
+                }
+
+                return amount;
+            }
+            catch(Exception ex) 
+            {
+                MessageBox.Show("error " + ex);
+                return 0;
+            }
+            finally
+            {
+                conn.Close() ;
+            }
+
+        }
+
+        public List<ProductModel> getFactoryProducts(int FID)
+        {
+            try
+            {
+                string query = "SELECT * FROM Product WHERE FID = '"+FID+"';";
+                SqlCommand command = new SqlCommand(query, conn);
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                List<ProductModel> products = new List<ProductModel>{ };
+
+                while (reader.Read())
+                {
+                    ProductModel product = new ProductModel();
+                    product.id = (int)reader["ID"];
+                    product.name = (string)reader["name"];
+                    product.description = (string)reader["description"];
+                    product.code = (string)reader["code"];
+                    product.FID = (int)reader["FID"];
+                    product.price = reader.GetSqlMoney(reader.GetOrdinal("price"));
+
+                    products.Add(product);
+                }
+
+                return products;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("error " +ex);
+                Console.WriteLine(ex);
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public int getProductAmount(int PID, int FID)
+        {
+            try
+            {
+                int amount = 0;
+                string query = "SELECT amount FROM report WHERE FID = '"+FID+"' AND PID='"+PID+"'";
+                SqlCommand command = new SqlCommand(query, conn);
+                conn.Open();
+                object result = command.ExecuteScalar();
+
+                if (result != null && result != DBNull.Value)
+                {
+                    amount = Convert.ToInt32(result);
+                }
+                return amount;
+            }
+            catch(Exception ex )
+            {
+                MessageBox.Show("error " + ex);
+                return 0;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,5 +15,7 @@ namespace VisoulProjectDisktopApp.model
         public string code{ get; set; }
         public int amount { get; set; }
         public int FID { get; set; }
+
+        public SqlMoney price { get; set; }
     }
 }
