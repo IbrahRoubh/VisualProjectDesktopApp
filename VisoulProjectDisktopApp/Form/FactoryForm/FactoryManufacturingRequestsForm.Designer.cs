@@ -243,6 +243,7 @@
             this.supplieId.HeaderText = "request ID";
             this.supplieId.Name = "supplieId";
             this.supplieId.ReadOnly = true;
+            this.supplieId.Visible = false;
             // 
             // warehouseName
             // 

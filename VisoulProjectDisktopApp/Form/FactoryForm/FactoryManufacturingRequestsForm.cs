@@ -74,20 +74,23 @@ namespace VisoulProjectDisktopApp
 
         private void onDoneShippedClick(object sender, DataGridViewCellEventArgs e)
         {
-            int id = (int)manfacturRequesDataGrid.Rows[e.RowIndex].Cells["supplieId"].Value;
-
-            DialogResult result = MessageBox.Show("Do you want to report request which have id=" + id + " as shipped?", "Confirmation", MessageBoxButtons.YesNo);
-
-            if (result == DialogResult.Yes)
+            if (e.RowIndex >= 0 && e.ColumnIndex == submitBtn.Index && e.ColumnIndex != -1)
             {
-                if (suppliesRepo.requestSend(id))
+                int id = (int)manfacturRequesDataGrid.Rows[e.RowIndex].Cells["supplieId"].Value;
+
+                DialogResult result = MessageBox.Show("Do you want to report this request as shipped?", "Confirmation", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
                 {
-                    MessageBox.Show("State change, thank you");
-                    loadManfacturingRequest();
-                }
-                else
-                {
-                    MessageBox.Show("For some resoun we could not change the state!!!");
+                    if (suppliesRepo.requestSend(id))
+                    {
+                        MessageBox.Show("State change, thank you");
+                        loadManfacturingRequest();
+                    }
+                    else
+                    {
+                        MessageBox.Show("For some resoun we could not change the state!!!");
+                    }
                 }
             }
         }

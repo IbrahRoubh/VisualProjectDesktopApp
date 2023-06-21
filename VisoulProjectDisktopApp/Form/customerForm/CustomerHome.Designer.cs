@@ -40,12 +40,22 @@
             this.warehouseLabel = new System.Windows.Forms.Label();
             this.settingsPanel = new System.Windows.Forms.Panel();
             this.settingsLabel = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.logoutBtn = new System.Windows.Forms.Button();
+            this.warehouseDataGrid = new System.Windows.Forms.DataGridView();
+            this.warehouseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.warehouseLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.warehousePhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.warehouseId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.exploreBtn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.homePanel.SuspendLayout();
             this.orderPanel.SuspendLayout();
             this.prevOrderPanel.SuspendLayout();
             this.warehousePanel.SuspendLayout();
             this.settingsPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.warehouseDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -216,15 +226,89 @@
             this.settingsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.settingsLabel.Click += new System.EventHandler(this.toSetting);
             // 
-            // MainCustomerForm
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.warehouseDataGrid);
+            this.panel1.Controls.Add(this.logoutBtn);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(146, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(654, 450);
+            this.panel1.TabIndex = 1;
+            // 
+            // logoutBtn
+            // 
+            this.logoutBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.logoutBtn.BackColor = System.Drawing.Color.Red;
+            this.logoutBtn.Location = new System.Drawing.Point(560, 407);
+            this.logoutBtn.Name = "logoutBtn";
+            this.logoutBtn.Size = new System.Drawing.Size(82, 30);
+            this.logoutBtn.TabIndex = 0;
+            this.logoutBtn.Text = "logout";
+            this.logoutBtn.UseVisualStyleBackColor = false;
+            this.logoutBtn.Click += new System.EventHandler(this.logoutBtn_Click);
+            // 
+            // warehouseDataGrid
+            // 
+            this.warehouseDataGrid.AllowUserToAddRows = false;
+            this.warehouseDataGrid.AllowUserToDeleteRows = false;
+            this.warehouseDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.warehouseDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.warehouseDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.warehouseDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.warehouseName,
+            this.warehouseLocation,
+            this.warehousePhone,
+            this.warehouseId,
+            this.exploreBtn});
+            this.warehouseDataGrid.Location = new System.Drawing.Point(6, 102);
+            this.warehouseDataGrid.Name = "warehouseDataGrid";
+            this.warehouseDataGrid.ReadOnly = true;
+            this.warehouseDataGrid.Size = new System.Drawing.Size(636, 171);
+            this.warehouseDataGrid.TabIndex = 1;
+            // 
+            // warehouseName
+            // 
+            this.warehouseName.HeaderText = "name";
+            this.warehouseName.Name = "warehouseName";
+            this.warehouseName.ReadOnly = true;
+            // 
+            // warehouseLocation
+            // 
+            this.warehouseLocation.HeaderText = "location";
+            this.warehouseLocation.Name = "warehouseLocation";
+            this.warehouseLocation.ReadOnly = true;
+            // 
+            // warehousePhone
+            // 
+            this.warehousePhone.HeaderText = "phone";
+            this.warehousePhone.Name = "warehousePhone";
+            this.warehousePhone.ReadOnly = true;
+            // 
+            // warehouseId
+            // 
+            this.warehouseId.HeaderText = "id";
+            this.warehouseId.Name = "warehouseId";
+            this.warehouseId.ReadOnly = true;
+            this.warehouseId.Visible = false;
+            // 
+            // exploreBtn
+            // 
+            this.exploreBtn.HeaderText = "exploer";
+            this.exploreBtn.Name = "exploreBtn";
+            this.exploreBtn.ReadOnly = true;
+            // 
+            // CustomerHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "MainCustomerForm";
+            this.Name = "CustomerHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home ";
+            this.Load += new System.EventHandler(this.CustomerHome_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.homePanel.ResumeLayout(false);
@@ -237,6 +321,8 @@
             this.warehousePanel.PerformLayout();
             this.settingsPanel.ResumeLayout(false);
             this.settingsPanel.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.warehouseDataGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -255,5 +341,13 @@
         private System.Windows.Forms.Label warehouseLabel;
         private System.Windows.Forms.Panel settingsPanel;
         private System.Windows.Forms.Label settingsLabel;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button logoutBtn;
+        private System.Windows.Forms.DataGridView warehouseDataGrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn warehouseName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn warehouseLocation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn warehousePhone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn warehouseId;
+        private System.Windows.Forms.DataGridViewButtonColumn exploreBtn;
     }
 }
